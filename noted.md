@@ -2,7 +2,7 @@
 
 A function call is considered to be a side effect for the purposes of this rule
 - The increment or decrement operator is a function call by itself.
- 
+
 - It can significantly impair the readability of the code
 - It is clearer to use these operations in isolation from any other operators
 
@@ -38,4 +38,4 @@ Here we can see the difference between a Required rule and an Advisory rule. Alt
 The compiler’s optimization options should be reviewed and selected carefully in order to ensure that an appropriate balance between execution speed and code size has been obtained
 
 ### Helix
-Helix QAC is a commercial static code analysis software tool
+Helix QAC is a commercial static code analysis software tool. You can see here, you have the code on the top left, and the report on the bottom, referencing every rule.
