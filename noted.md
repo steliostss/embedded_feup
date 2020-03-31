@@ -26,7 +26,7 @@ Here we can see the difference between a Required rule and an Advisory rule. Alt
 
 3. Embedded systems come with legacy codebases. By setting baselines, you can focus on making sure your new code is compliant.
 
-4. You could have hundreds or even thousands of violations in your code. That’s why it’s important to prioritize rule violations based on risk severity. Some static code analysis tools can do this for you.
+4. You could have hundreds or even thousands of violations in your code. That’s why it’s important to prioritize rule violations based on risk severity. In other words, list violations sorted by the worst possible outcome. Some static code analysis tools can do this for you.
 
 5. Sometimes there are exceptions to the rule. But when it comes to compliance, every rule deviation needs to be well-documented.
 
