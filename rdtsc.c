@@ -34,3 +34,9 @@ int main(int argc, char **argv) {
 
  return 0;
 }
+
+// Timestamp counter
+// Counter increments with the same speed as CPU so its much more detailed and there is no loss of information
+// With a simple conversion you calculate seconds.
+// counter value is in Hz (?)
+//
