@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Embedded - Intermediate Report}
+% \subtitle{Assignment 10: Install and characterize an RTOS}
+\author{Vasileios Konstantaras, Alena Tesarova, Stylianos Tsagkarakis}
+\date{25 April 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor= blue,
+}
+
+\urlstyle{same}
+\begin{document}
+
+\maketitle
+
+\section{RTOS Selection}
+We have selected FreeRTOS as the RTOS we are going to install and evaluate for this assignment. Since there is a lack of hardware we decided to go with this because there is a simulation of FreeRTOS through a Windows port (for more info see \href{https://freertos.org/FreeRTOS-Windows-Simulator-Emulator-for-Visual-Studio-and-Eclipse-MingW.html}{here}), thus it will be easier for us. 
+
+\section{Metrics for Benchmark}
+The metrics we are going to evaluate separate in three sets: 
+
+\begin{enumerate}
+
+    \item Latency
+        \begin{itemize}
+            \item System calls latency
+            \item Latency of peripheral functions
+            \item Context switch overhead
+            \item Jitter causes by OS overhead
+        \end{itemize}
+
+    \item Performance / Throughput
+        \begin{itemize}
+            \item Memory usage
+            \item Program memory usage
+            \item Reliability and determinism
+        \end{itemize}
+
+    \item OS Features
+        \begin{itemize}
+            \item Supported algorithms
+            \item Real-time tracing features
+            \item Support of static memory allocation
+            \item Security
+            \item OS Support / Community support
+        \end{itemize}
+
+\end{enumerate}
+
+% \newpage
+\clearpage
+
+\section{Implementation}
+
+While benchmarking FreeRTOS we should follow the requirements mentioned below:
+\begin{itemize}
+    \item The measurements should be as accurate as possible.
+    \item The solutions developed should be as non-intrusive as possible.
+    \item The measurement should give average results.
+\end{itemize}
+
+\noindent \textbf{Example and principles} \footnote[1]{All of the above will be tested in custom scripts written by us to test the system both normal execution load and under extreme load.}
+
+\begin{itemize}
+
+\item The latency of functions can be examined by measuring the execution time. The on-
+chip timer based software tool gives timestamps at both the beginning and the end of
+a given function. It is suggested to use two methods of measuring time.
+
+\item The memory usage of a given data structure can be measured by calculating the amount of heap used in the \textit{malloc()} function when the concerned structure is created.
+
+\item The program code size is shown by a map file created by the compiler.
+
+\end{itemize}
+
+% \end{section}
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+\end{document}
+
