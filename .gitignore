@@ -5,3 +5,9 @@ UnoArduSimV2.4.1/
 
 .vscode/
 .vs/
+
+*.read.1.tlog
+*.write.1.tlog
+*.exe
+*.obj
+Debug/
