@@ -1,1 +1,5 @@
-﻿
+﻿  scheduler.c
+C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(636,1): warning C4204: nonstandard extension used: non-constant aggregate initializer
+C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(734,98): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
+C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(844,96): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
+  WIN32.vcxproj -> D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\.\Debug\RTOSDemo.exe
