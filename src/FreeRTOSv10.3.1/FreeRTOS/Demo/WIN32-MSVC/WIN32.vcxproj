@@ -106,7 +106,6 @@
     <ClCompile Include="..\Common\Minimal\StreamBufferInterrupt.c" />
     <ClCompile Include="..\Common\Minimal\TaskNotify.c" />
     <ClCompile Include="..\Common\Minimal\timerdemo.c" />
-    <ClCompile Include="C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c" />
     <ClCompile Include="main.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -131,6 +130,7 @@
     <ClCompile Include="main_full.c" />
     <ClCompile Include="Run-time-stats-utils.c" />
     <ClCompile Include="main_tasks.c" />
+    <ClCompile Include="scheduler.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\include\event_groups.h" />
@@ -138,7 +138,6 @@
     <ClInclude Include="..\..\Source\include\stream_buffer.h" />
     <ClInclude Include="..\..\Source\include\timers.h" />
     <ClInclude Include="..\..\Source\portable\MSVC-MingW\portmacro.h" />
-    <ClInclude Include="C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.h" />
     <ClInclude Include="FreeRTOSConfig.h" />
     <ClInclude Include="..\..\Source\include\croutine.h" />
     <ClInclude Include="..\..\Source\include\FreeRTOS.h" />
@@ -148,6 +147,7 @@
     <ClInclude Include="..\..\Source\include\queue.h" />
     <ClInclude Include="..\..\Source\include\semphr.h" />
     <ClInclude Include="..\..\Source\include\task.h" />
+    <ClInclude Include="scheduler.h" />
     <ClInclude Include="Trace_Recorder_Configuration\trcConfig.h" />
   </ItemGroup>
   <ItemGroup>

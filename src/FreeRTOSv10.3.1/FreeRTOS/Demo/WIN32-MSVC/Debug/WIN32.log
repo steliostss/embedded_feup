@@ -1,5 +1,52 @@
-﻿  scheduler.c
-C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(636,1): warning C4204: nonstandard extension used: non-constant aggregate initializer
-C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(734,98): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
-C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c(844,96): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
+﻿  trcKernelPort.c
+  trcSnapshotRecorder.c
+  croutine.c
+  event_groups.c
+  heap_5.c
+  stream_buffer.c
+  timers.c
+  AbortDelay.c
+  BlockQ.c
+  blocktim.c
+  countsem.c
+  death.c
+  dynamic.c
+  EventGroupsDemo.c
+  flop.c
+  GenQTest.c
+  integer.c
+  IntSemTest.c
+  MessageBufferAMP.c
+  PollQ.c
+  Generating Code...
+  Compiling...
+  QPeek.c
+  QueueOverwrite.c
+  QueueSet.c
+  QueueSetPolling.c
+  recmutex.c
+  semtest.c
+  StaticAllocation.c
+  MessageBufferDemo.c
+  StreamBufferDemo.c
+  StreamBufferInterrupt.c
+  TaskNotify.c
+  timerdemo.c
+  main.c
+  list.c
+  port.c
+  queue.c
+  tasks.c
+  main_blinky.c
+  main_full.c
+  Run-time-stats-utils.c
+  Generating Code...
+  Compiling...
+  main_tasks.c
+D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\main_tasks.c(90,18): warning C4189: 'TH1': local variable is initialized but not referenced
+  scheduler.c
+D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\scheduler.c(636,1): warning C4204: nonstandard extension used: non-constant aggregate initializer
+D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\scheduler.c(734,98): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
+D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\scheduler.c(844,96): warning C4244: 'function': conversion from 'UBaseType_t' to 'const uint16_t', possible loss of data
+  Generating Code...
   WIN32.vcxproj -> D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\.\Debug\RTOSDemo.exe

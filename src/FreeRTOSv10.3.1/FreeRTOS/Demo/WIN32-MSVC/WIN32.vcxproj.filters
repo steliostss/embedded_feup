@@ -38,6 +38,9 @@
     <Filter Include="Demo App Source\Blinky_Demo">
       <UniqueIdentifier>{fb86fa48-ac27-4f87-9215-ce9e1a1a85f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Demo App Source\Tasks_basic">
+      <UniqueIdentifier>{76c46b13-d1b7-49e6-878e-36fc0dcb7811}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -161,10 +164,10 @@
       <Filter>Demo App Source\Full_Demo\Common Demo Tasks</Filter>
     </ClCompile>
     <ClCompile Include="main_tasks.c">
-      <Filter>Demo App Source\Blinky_Demo</Filter>
+      <Filter>Demo App Source\Tasks_basic</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.c">
-      <Filter>FreeRTOS Source\Include</Filter>
+    <ClCompile Include="scheduler.c">
+      <Filter>Demo App Source\Tasks_basic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -213,8 +216,8 @@
     <ClInclude Include="..\..\Source\include\stream_buffer.h">
       <Filter>FreeRTOS Source\Include</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alca\Downloads\ESFree-master\ESFree-master\scheduler.h">
-      <Filter>FreeRTOS Source\Include</Filter>
+    <ClInclude Include="scheduler.h">
+      <Filter>Demo App Source\Tasks_basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
