@@ -1,2 +1,1 @@
 D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src2\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\Debug\RTOSDemo.exe
-D:\Dokumenty\FIT VUT\erasmus\LS2020\SEMB\project\embedded_feup\src\FreeRTOSv10.3.1\FreeRTOS\Demo\WIN32-MSVC\Debug\RTOSDemo.exe
