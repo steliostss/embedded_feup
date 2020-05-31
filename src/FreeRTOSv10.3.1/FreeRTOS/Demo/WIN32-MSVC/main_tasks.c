@@ -1,6 +1,7 @@
-  /* Standard includes. */
+/* Standard includes. */
 #include <stdio.h>
 #include <conio.h>
+#include <windows.h>
 
 /* Kernel includes. */
 #include "FreeRTOS.h"
@@ -71,6 +72,7 @@ static void testFunc4(void* pvParameters)
 	{
 		a = 1 + i * i * i * i;
 	}
+	Sleep(1000);
 	printf("Test4 %c\r\n", *c);
 }
 
