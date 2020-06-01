@@ -68,4 +68,55 @@ The creater helped me on email to compile it:
 4. make mutex/round_robin EXAMPLE=freertos-rpi2 (all targets are in Makefile)
 
 **Note**: after putting to Raspberry, it shows nothing (I am discussing that with the git repository owner)
+**update 1.6. 2020** working
+
+#### How to output the results on console?
+This function is the key: **rpi_aux_mu_string** (it gives results in console)
+or we can use: **no_serial_write("SEM T ER text")**
+
+	    char printfbuf[100];
+	    memset(printfbuf, '\0', 100);
+	    int32_t a, b, c;
+	    a = (int32_t)max;
+		sprintf(printfbuf, "max=%d\nmin=%d\naverage=%d", a, b, c);
+		rpi_aux_mu_string(printfbuf);
+
+#### TESTS
+Please, try to understand the tests and write your notes here what they do (what are the result). I will try to test them:
+
+- interrupt_processing
+- event
+- event_processing
+- mq
+- mq_workload
+- mq_processing:
+- mutex:
+- mutex_pip:
+- mutex_workload:
+- mutex_processing:
+- round_robin (tested): **TASK SWITCHING TIME**
+	- it creates 5 tasks (BASE priority, function: task, no params) and executes them according to round_robin algorithm
+	- it always counts difference between timer1 and timer2 (in statistics we see max, min)
+	- t1: indicating start of the tasks (then it is interupted by a different task)
+	- t2: indicating start of the same tasks after interuption ?? (not sure)
+
+- sched_latency:
+- sem:
+- sem_processing:
+- sem_prio:
+- sem_workload:
+- jitter:
+
+##### Next notes:
+no_task_yield => taskYIELD --  is used to request a context switch to another task. However, if there are no other tasks at a higher or equal priority to the task that calls taskYIELD() then the RTOS scheduler will simply select the task that called taskYIELD() to run again. 
+
+no_task_suspend_self => vTaskSuspend --  Suspend any task. When suspended a task will never get any microcontroller processing time, no matter what its priority.
+
+COMPUTE_TIME_STATS(suffix, n) -- counts t1 - t2 (difference between timers) and saves them to no_cycles_results[n] that is used in the report
+
+DECLARE_TIME_STATS -- desclares cycles, no_cycles_results
+
+no_time_diff - printing now t1, t2
+
+**Raspberry Config** contains come precompiled images that were tested on RaspBerry PI2B
 
