@@ -11,9 +11,13 @@ I am also putting the outputs from console to these files.
 
 - note/question: for round robin I run it now with 2 tasks, is it a problem?
 
-#### done
+#### Done test
 - round_robin
 - sem
 - sem_prio
 - sem_processing
+
+- event\* missing in test folder!
+- interrupt_processing is giving no results!
+- jitter is also giving no results!
 
