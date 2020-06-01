@@ -49,7 +49,7 @@ extern void vClearTimerInterrupt( void );
  *----------------------------------------------------------*/
 
 #define configMAX_PRIORITIES		32
-#define configUSE_PREEMPTION		1
+#define configUSE_PREEMPTION		0 	// for all tasks set to 1, round_robin set to 0!!
 #define configUSE_IDLE_HOOK			0
 #define configUSE_TICK_HOOK			0
 #define configCPU_CLOCK_HZ			( ( unsigned long ) 250000000)

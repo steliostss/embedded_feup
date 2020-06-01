@@ -14,15 +14,15 @@ Archive member included to satisfy reference by file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-s_to_r_t1           0x4               bld/mutex.o
 printfbuf           0x64              bld/freertos_porting_layer.o
-r_to_s_t2           0x4               bld/mutex.o
-tasks_handle        0x8               bld/mutex.o
-mutex               0x4               bld/mutex.o
-aux_sem             0x4               bld/mutex.o
+__t1                0x4               bld/round_robin.o
+tasks_handle        0x8               bld/round_robin.o
+results             0x4e20            bld/round_robin.o
+__t2                0x4               bld/round_robin.o
+tasks_name          0xa               bld/round_robin.o
 portEOIStub         0x4               bld/portISR.o
-s_to_r_t2           0x4               bld/mutex.o
-r_to_s_t1           0x4               bld/mutex.o
+tasks_idx           0x4               bld/round_robin.o
+tasks_done_count    0x4               bld/round_robin.o
 
 Memory Configuration
 
@@ -45,7 +45,7 @@ LOAD bld/portISR.o
 LOAD bld/startup.o
 LOAD bld/freertos_porting_layer.o
 LOAD bld/mmu.o
-LOAD bld/mutex.o
+LOAD bld/round_robin.o
 LOAD bld/rpi_aux.o
 LOAD bld/rpi_gpio.o
 LOAD bld/rpi_i2c.o
@@ -68,7 +68,7 @@ LOAD /usr/lib/arm-none-eabi/lib/libc.a
                 0x0000000000008148                __module_entries_end = .
                 0x0000000000000000                __module_entries_size = SIZEOF (.module_entries)
 
-.text           0x0000000000010000     0x596c
+.text           0x0000000000010000     0x5920
  *(.text)
  .text          0x0000000000010000       0xfc bld/list.o
                 0x0000000000010000                vListInitialise
@@ -168,189 +168,188 @@ LOAD /usr/lib/arm-none-eabi/lib/libc.a
                 0x0000000000012b6c                PUT32
                 0x0000000000012b74                GET32
                 0x0000000000012b7c                dummy
- .text          0x0000000000012b80      0x4a0 bld/freertos_porting_layer.o
+ .text          0x0000000000012b80      0x4fc bld/freertos_porting_layer.o
                 0x0000000000012b80                no_initialize_test
-                0x0000000000012c44                no_create_task
-                0x0000000000012c70                no_task_yield
-                0x0000000000012c7c                no_task_suspend
-                0x0000000000012c80                no_task_suspend_self
-                0x0000000000012c88                no_task_resume
-                0x0000000000012c8c                no_task_delay
-                0x0000000000012c90                no_init_timer
-                0x0000000000012cb4                no_disable_timer
-                0x0000000000012cb8                no_reset_timer
-                0x0000000000012cbc                no_add_times
-                0x0000000000012cd0                no_time_get
-                0x0000000000012cd8                no_time_diff
-                0x0000000000012ce8                no_sem_create
-                0x0000000000012d00                no_sem_wait
-                0x0000000000012d28                no_sem_signal
-                0x0000000000012d58                no_mutex_create
-                0x0000000000012d70                no_mutex_acquire
-                0x0000000000012d98                no_mutex_release
-                0x0000000000012dc8                no_event_create
-                0x0000000000012ddc                no_event_set
-                0x0000000000012de8                no_event_reset
-                0x0000000000012df4                no_event_wait
-                0x0000000000012e20                no_mq_create
-                0x0000000000012e44                no_mq_send
-                0x0000000000012e70                no_mq_receive
-                0x0000000000012e90                no_serial_write
-                0x0000000000012e94                no_report_results
-                0x0000000000012f08                no_reset_all_pmu_counter
-                0x0000000000012f18                no_inst_get_count
-                0x0000000000012f28                no_cycle_reset_counter
-                0x0000000000012f38                no_cycle_get_count
-                0x0000000000012f40                no_single_result_report
-                0x0000000000012f88                no_result_report
-                0x0000000000012fe0                no_interrupt_do_sgi
-                0x0000000000012ff8                no_interrupt_enable_sgi
-                0x0000000000013010                no_interrupt_register_sgi_handler
- .text          0x0000000000013020      0x3a4 bld/mmu.o
-                0x0000000000013020                init_page_table
-                0x00000000000132a8                mmu_init
-                0x0000000000013314                virtualmap
- *fill*         0x00000000000133c4        0x4 
- .text          0x00000000000133c8      0x280 bld/mutex.o
-                0x00000000000133c8                mutex_initialize_test
-                0x000000000001342c                sender
-                0x000000000001348c                receiver
- .text          0x0000000000013648      0x210 bld/rpi_aux.o
-                0x0000000000013648                dummy_aux
-                0x000000000001364c                rpi_aux_mu_init
-                0x0000000000013720                rpi_aux_mu_raw_putc
-                0x000000000001373c                rpi_aux_mu_putc
-                0x0000000000013774                rpi_aux_mu_string
-                0x00000000000137e8                rpi_aux_getc
-                0x0000000000013808                __putc
- .text          0x0000000000013858      0x3c0 bld/rpi_gpio.o
-                0x0000000000013858                rpi_gpio_sel_fun
-                0x00000000000138a4                rpi_gpio_set_val
-                0x00000000000138e0                rpi_gpio_get_val
-                0x0000000000013910                rpi_gpio_toggle
-                0x0000000000013950                rpi_gpio_ev_read_status
-                0x0000000000013a08                rpi_gpio_ev_clear_status
-                0x0000000000013a30                rpi_gpio_ev_detect_enable
-                0x0000000000013b24                rpi_gpio_ev_detect_disable
- .text          0x0000000000013c18      0x310 bld/rpi_i2c.o
-                0x0000000000013c18                rpi_i2c_init
-                0x0000000000013c60                wait_i2c_done
-                0x0000000000013c78                rpi_i2c_write
-                0x0000000000013dc4                rpi_i2c_set_reg
-                0x0000000000013de4                _read
-                0x0000000000013eec                rpi_i2c_read
-                0x0000000000013f1c                rpi_i2c_get_reg
- .text          0x0000000000013f28      0x1cc bld/rpi_irq.o
-                0x0000000000013f2c                vApplicationIRQHandler
-                0x0000000000013fb4                rpi_irq_init
-                0x0000000000014000                rpi_irq_register_handler
-                0x000000000001402c                rpi_irq_enable
-                0x0000000000014080                rpi_irq_disable
-                0x00000000000140d4                rpi_cpu_irq_enable
-                0x00000000000140e4                rpi_cpu_irq_disable
- .text          0x00000000000140f4       0x50 bld/rpi_systimer.o
-                0x00000000000140f4                rpi_sys_timer_get64
- .text          0x0000000000014144     0x13a0 bld/printf.o
-                0x0000000000014144                kvprintf
-                0x0000000000015468                printf
-                0x00000000000154a8                sprintf
- .text          0x00000000000154e4      0x114 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
-                0x00000000000154e4                __udivsi3
-                0x00000000000154e4                __aeabi_uidiv
-                0x00000000000155d8                __aeabi_uidivmod
- .text          0x00000000000155f8      0x148 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
-                0x00000000000155f8                __aeabi_idiv
-                0x00000000000155f8                __divsi3
-                0x0000000000015720                __aeabi_idivmod
- .text          0x0000000000015740        0x4 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
-                0x0000000000015740                __aeabi_ldiv0
-                0x0000000000015740                __aeabi_idiv0
- .text          0x0000000000015744      0x114 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
-                0x0000000000015744                memcpy
- .text          0x0000000000015858      0x114 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
-                0x0000000000015858                memset
+                0x0000000000012c5c                no_create_task
+                0x0000000000012c88                no_task_yield
+                0x0000000000012c94                no_task_suspend
+                0x0000000000012c98                no_task_suspend_self
+                0x0000000000012ca0                no_task_resume
+                0x0000000000012ca4                no_task_delay
+                0x0000000000012ca8                no_init_timer
+                0x0000000000012ccc                no_disable_timer
+                0x0000000000012cd0                no_reset_timer
+                0x0000000000012cd4                no_add_times
+                0x0000000000012ce8                no_time_get
+                0x0000000000012cf0                no_sem_create
+                0x0000000000012d08                no_sem_wait
+                0x0000000000012d30                no_sem_signal
+                0x0000000000012d60                no_mutex_create
+                0x0000000000012d78                no_mutex_acquire
+                0x0000000000012da0                no_mutex_release
+                0x0000000000012dd0                no_event_create
+                0x0000000000012de4                no_event_set
+                0x0000000000012df0                no_event_reset
+                0x0000000000012dfc                no_event_wait
+                0x0000000000012e28                no_mq_create
+                0x0000000000012e4c                no_mq_send
+                0x0000000000012e78                no_mq_receive
+                0x0000000000012e98                no_serial_write
+                0x0000000000012e9c                no_report_results
+                0x0000000000012f10                no_reset_all_pmu_counter
+                0x0000000000012f20                no_inst_get_count
+                0x0000000000012f30                no_cycle_reset_counter
+                0x0000000000012f40                no_cycle_get_count
+                0x0000000000012f48                no_single_result_report
+                0x0000000000012f9c                no_time_diff
+                0x0000000000012fe4                no_result_report
+                0x000000000001303c                no_interrupt_do_sgi
+                0x0000000000013054                no_interrupt_enable_sgi
+                0x000000000001306c                no_interrupt_register_sgi_handler
+ *fill*         0x000000000001307c        0x4 
+ .text          0x0000000000013080      0x3a4 bld/mmu.o
+                0x0000000000013080                init_page_table
+                0x0000000000013308                mmu_init
+                0x0000000000013374                virtualmap
+ .text          0x0000000000013424      0x1d8 bld/round_robin.o
+                0x0000000000013424                round_robin_stress_initialize_test
+                0x00000000000134c0                task
+ .text          0x00000000000135fc      0x210 bld/rpi_aux.o
+                0x00000000000135fc                dummy_aux
+                0x0000000000013600                rpi_aux_mu_init
+                0x00000000000136d4                rpi_aux_mu_raw_putc
+                0x00000000000136f0                rpi_aux_mu_putc
+                0x0000000000013728                rpi_aux_mu_string
+                0x000000000001379c                rpi_aux_getc
+                0x00000000000137bc                __putc
+ .text          0x000000000001380c      0x3c0 bld/rpi_gpio.o
+                0x000000000001380c                rpi_gpio_sel_fun
+                0x0000000000013858                rpi_gpio_set_val
+                0x0000000000013894                rpi_gpio_get_val
+                0x00000000000138c4                rpi_gpio_toggle
+                0x0000000000013904                rpi_gpio_ev_read_status
+                0x00000000000139bc                rpi_gpio_ev_clear_status
+                0x00000000000139e4                rpi_gpio_ev_detect_enable
+                0x0000000000013ad8                rpi_gpio_ev_detect_disable
+ .text          0x0000000000013bcc      0x310 bld/rpi_i2c.o
+                0x0000000000013bcc                rpi_i2c_init
+                0x0000000000013c14                wait_i2c_done
+                0x0000000000013c2c                rpi_i2c_write
+                0x0000000000013d78                rpi_i2c_set_reg
+                0x0000000000013d98                _read
+                0x0000000000013ea0                rpi_i2c_read
+                0x0000000000013ed0                rpi_i2c_get_reg
+ .text          0x0000000000013edc      0x1cc bld/rpi_irq.o
+                0x0000000000013ee0                vApplicationIRQHandler
+                0x0000000000013f68                rpi_irq_init
+                0x0000000000013fb4                rpi_irq_register_handler
+                0x0000000000013fe0                rpi_irq_enable
+                0x0000000000014034                rpi_irq_disable
+                0x0000000000014088                rpi_cpu_irq_enable
+                0x0000000000014098                rpi_cpu_irq_disable
+ .text          0x00000000000140a8       0x50 bld/rpi_systimer.o
+                0x00000000000140a8                rpi_sys_timer_get64
+ .text          0x00000000000140f8     0x13a0 bld/printf.o
+                0x00000000000140f8                kvprintf
+                0x000000000001541c                printf
+                0x000000000001545c                sprintf
+ .text          0x0000000000015498      0x114 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
+                0x0000000000015498                __udivsi3
+                0x0000000000015498                __aeabi_uidiv
+                0x000000000001558c                __aeabi_uidivmod
+ .text          0x00000000000155ac      0x148 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
+                0x00000000000155ac                __aeabi_idiv
+                0x00000000000155ac                __divsi3
+                0x00000000000156d4                __aeabi_idivmod
+ .text          0x00000000000156f4        0x4 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
+                0x00000000000156f4                __aeabi_ldiv0
+                0x00000000000156f4                __aeabi_idiv0
+ .text          0x00000000000156f8      0x114 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+                0x00000000000156f8                memcpy
+ .text          0x000000000001580c      0x114 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+                0x000000000001580c                memset
 
-.rodata.str1.4  0x000000000001596c      0x11c
+.rodata.str1.4  0x0000000000015920      0x130
  .rodata.str1.4
-                0x000000000001596c        0x5 bld/tasks.o
- *fill*         0x0000000000015971        0x3 
+                0x0000000000015920        0x5 bld/tasks.o
+ *fill*         0x0000000000015925        0x3 
  .rodata.str1.4
-                0x0000000000015974       0xbd bld/freertos_porting_layer.o
- *fill*         0x0000000000015a31        0x3 
+                0x0000000000015928       0xe1 bld/freertos_porting_layer.o
+ *fill*         0x0000000000015a09        0x3 
  .rodata.str1.4
-                0x0000000000015a34       0x3e bld/mutex.o
- *fill*         0x0000000000015a72        0x2 
+                0x0000000000015a0c       0x2e bld/round_robin.o
+ *fill*         0x0000000000015a3a        0x2 
  .rodata.str1.4
-                0x0000000000015a74       0x14 bld/printf.o
+                0x0000000000015a3c       0x14 bld/printf.o
                                          0x13 (size before relaxing)
 
-.rodata         0x0000000000015a88       0x29
- .rodata        0x0000000000015a88        0x4 bld/port.o
-                0x0000000000015a88                ulICCEOIR
- .rodata        0x0000000000015a8c       0x25 bld/printf.o
-                0x0000000000015a8c                hex2ascii_data
+.rodata         0x0000000000015a50       0x29
+ .rodata        0x0000000000015a50        0x4 bld/port.o
+                0x0000000000015a50                ulICCEOIR
+ .rodata        0x0000000000015a54       0x25 bld/printf.o
+                0x0000000000015a54                hex2ascii_data
 
-.glue_7         0x0000000000015ab4        0x0
- .glue_7        0x0000000000015ab4        0x0 linker stubs
+.glue_7         0x0000000000015a7c        0x0
+ .glue_7        0x0000000000015a7c        0x0 linker stubs
 
-.glue_7t        0x0000000000015ab4        0x0
- .glue_7t       0x0000000000015ab4        0x0 linker stubs
+.glue_7t        0x0000000000015a7c        0x0
+ .glue_7t       0x0000000000015a7c        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000015ab4        0x0
- .vfp11_veneer  0x0000000000015ab4        0x0 linker stubs
+.vfp11_veneer   0x0000000000015a7c        0x0
+ .vfp11_veneer  0x0000000000015a7c        0x0 linker stubs
 
-.v4_bx          0x0000000000015ab4        0x0
- .v4_bx         0x0000000000015ab4        0x0 linker stubs
+.v4_bx          0x0000000000015a7c        0x0
+ .v4_bx         0x0000000000015a7c        0x0 linker stubs
 
-.iplt           0x0000000000015ab4        0x0
- .iplt          0x0000000000015ab4        0x0 bld/list.o
+.iplt           0x0000000000015a7c        0x0
+ .iplt          0x0000000000015a7c        0x0 bld/list.o
 
-.text.startup   0x0000000000015ab4       0x18
- .text.startup  0x0000000000015ab4       0x18 bld/mutex.o
-                0x0000000000015ab4                main
+.text.startup   0x0000000000015a7c       0x18
+ .text.startup  0x0000000000015a7c       0x18 bld/round_robin.o
+                0x0000000000015a7c                main
 
-.rel.dyn        0x0000000000015acc        0x0
- .rel.iplt      0x0000000000015acc        0x0 bld/list.o
+.rel.dyn        0x0000000000015a94        0x0
+ .rel.iplt      0x0000000000015a94        0x0 bld/list.o
 
-.data           0x0000000000015acc       0x24
+.data           0x0000000000015a94       0x24
  *(.data)
- .data          0x0000000000015acc        0x0 bld/list.o
- .data          0x0000000000015acc        0x0 bld/queue.o
- .data          0x0000000000015acc        0x0 bld/tasks.o
- .data          0x0000000000015acc        0x0 bld/heap_4.o
- .data          0x0000000000015acc        0x0 bld/event_groups.o
- .data          0x0000000000015acc        0x4 bld/port.o
-                0x0000000000015acc                ulCriticalNesting
- .data          0x0000000000015ad0        0x0 bld/portASM.o
- .data          0x0000000000015ad0        0x0 bld/portISR.o
- .data          0x0000000000015ad0        0x0 bld/startup.o
- .data          0x0000000000015ad0       0x20 bld/freertos_porting_layer.o
-                0x0000000000015ad0                coreTimer
-                0x0000000000015ad4                coreTimerPrescaler
-                0x0000000000015ad8                coreMailboxInterrupt
-                0x0000000000015adc                coreMailboxInterruptCtrl
-                0x0000000000015ae0                coreMailboxInterruptClr
-                0x0000000000015ae4                systemTimer
-                0x0000000000015ae8                coreTimerHigh
-                0x0000000000015aec                coreTimerLow
- .data          0x0000000000015af0        0x0 bld/mmu.o
- .data          0x0000000000015af0        0x0 bld/mutex.o
- .data          0x0000000000015af0        0x0 bld/rpi_aux.o
- .data          0x0000000000015af0        0x0 bld/rpi_gpio.o
- .data          0x0000000000015af0        0x0 bld/rpi_i2c.o
- .data          0x0000000000015af0        0x0 bld/rpi_irq.o
- .data          0x0000000000015af0        0x0 bld/rpi_systimer.o
- .data          0x0000000000015af0        0x0 bld/printf.o
- .data          0x0000000000015af0        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
- .data          0x0000000000015af0        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
- .data          0x0000000000015af0        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
- .data          0x0000000000015af0        0x0 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
- .data          0x0000000000015af0        0x0 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .data          0x0000000000015a94        0x0 bld/list.o
+ .data          0x0000000000015a94        0x0 bld/queue.o
+ .data          0x0000000000015a94        0x0 bld/tasks.o
+ .data          0x0000000000015a94        0x0 bld/heap_4.o
+ .data          0x0000000000015a94        0x0 bld/event_groups.o
+ .data          0x0000000000015a94        0x4 bld/port.o
+                0x0000000000015a94                ulCriticalNesting
+ .data          0x0000000000015a98        0x0 bld/portASM.o
+ .data          0x0000000000015a98        0x0 bld/portISR.o
+ .data          0x0000000000015a98        0x0 bld/startup.o
+ .data          0x0000000000015a98       0x20 bld/freertos_porting_layer.o
+                0x0000000000015a98                coreTimer
+                0x0000000000015a9c                coreTimerPrescaler
+                0x0000000000015aa0                coreMailboxInterrupt
+                0x0000000000015aa4                coreMailboxInterruptCtrl
+                0x0000000000015aa8                coreMailboxInterruptClr
+                0x0000000000015aac                systemTimer
+                0x0000000000015ab0                coreTimerHigh
+                0x0000000000015ab4                coreTimerLow
+ .data          0x0000000000015ab8        0x0 bld/mmu.o
+ .data          0x0000000000015ab8        0x0 bld/round_robin.o
+ .data          0x0000000000015ab8        0x0 bld/rpi_aux.o
+ .data          0x0000000000015ab8        0x0 bld/rpi_gpio.o
+ .data          0x0000000000015ab8        0x0 bld/rpi_i2c.o
+ .data          0x0000000000015ab8        0x0 bld/rpi_irq.o
+ .data          0x0000000000015ab8        0x0 bld/rpi_systimer.o
+ .data          0x0000000000015ab8        0x0 bld/printf.o
+ .data          0x0000000000015ab8        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
+ .data          0x0000000000015ab8        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
+ .data          0x0000000000015ab8        0x0 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000000015ab8        0x0 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .data          0x0000000000015ab8        0x0 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.igot.plt       0x0000000000015af0        0x0
- .igot.plt      0x0000000000015af0        0x0 bld/list.o
+.igot.plt       0x0000000000015ab8        0x0
+ .igot.plt      0x0000000000015ab8        0x0 bld/list.o
 
-.bss            0x0000000000016000    0x172c8
+.bss            0x0000000000016000    0x1c0ec
                 0x0000000000016000                __bss_start = .
  *(.bss)
  .bss           0x0000000000016000        0x0 bld/list.o
@@ -369,7 +368,7 @@ LOAD /usr/lib/arm-none-eabi/lib/libc.a
  .bss           0x000000000002749c        0x0 bld/freertos_porting_layer.o
  *fill*         0x000000000002749c      0xb64 
  .bss           0x0000000000028000     0x5000 bld/mmu.o
- .bss           0x000000000002d000        0x0 bld/mutex.o
+ .bss           0x000000000002d000        0x0 bld/round_robin.o
  .bss           0x000000000002d000        0x0 bld/rpi_aux.o
  .bss           0x000000000002d000        0x0 bld/rpi_gpio.o
  .bss           0x000000000002d000        0x0 bld/rpi_i2c.o
@@ -387,19 +386,19 @@ LOAD /usr/lib/arm-none-eabi/lib/libc.a
                 0x000000000002d240                portEOIStub
  COMMON         0x000000000002d244       0x64 bld/freertos_porting_layer.o
                 0x000000000002d244                printfbuf
- COMMON         0x000000000002d2a8       0x20 bld/mutex.o
-                0x000000000002d2a8                s_to_r_t1
-                0x000000000002d2ac                r_to_s_t2
-                0x000000000002d2b0                tasks_handle
-                0x000000000002d2b8                mutex
-                0x000000000002d2bc                aux_sem
-                0x000000000002d2c0                s_to_r_t2
-                0x000000000002d2c4                r_to_s_t1
+ COMMON         0x000000000002d2a8     0x4e44 bld/round_robin.o
+                0x000000000002d2a8                __t1
+                0x000000000002d2ac                tasks_handle
+                0x000000000002d2b4                results
+                0x00000000000320d4                __t2
+                0x00000000000320d8                tasks_name
+                0x00000000000320e4                tasks_idx
+                0x00000000000320e8                tasks_done_count
                 [!provide]                        PROVIDE (__HEAP_START, __bss_end)
                 0x0000000008010000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
 OUTPUT(kernel7.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xcf4a
+.debug_info     0x0000000000000000     0xd667
  .debug_info    0x0000000000000000      0xab7 bld/list.o
  .debug_info    0x0000000000000ab7     0x1f63 bld/queue.o
  .debug_info    0x0000000000002a1a     0x2329 bld/tasks.o
@@ -407,22 +406,22 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_info    0x000000000000592a     0x114e bld/event_groups.o
  .debug_info    0x0000000000006a78      0xac8 bld/port.o
  .debug_info    0x0000000000007540      0xa0b bld/portISR.o
- .debug_info    0x0000000000007f4b     0x177c bld/freertos_porting_layer.o
- .debug_info    0x00000000000096c7      0x443 bld/mmu.o
- .debug_info    0x0000000000009b0a      0x592 bld/mutex.o
- .debug_info    0x000000000000a09c      0x37d bld/rpi_aux.o
- .debug_info    0x000000000000a419      0x58b bld/rpi_gpio.o
- .debug_info    0x000000000000a9a4      0x48f bld/rpi_i2c.o
- .debug_info    0x000000000000ae33      0x339 bld/rpi_irq.o
- .debug_info    0x000000000000b16c      0x13c bld/rpi_systimer.o
- .debug_info    0x000000000000b2a8      0x849 bld/printf.o
- .debug_info    0x000000000000baf1       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
- .debug_info    0x000000000000bb9f       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
- .debug_info    0x000000000000bc4d       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
- .debug_info    0x000000000000bcfb      0x934 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
- .debug_info    0x000000000000c62f      0x91b /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .debug_info    0x0000000000007f4b     0x17f0 bld/freertos_porting_layer.o
+ .debug_info    0x000000000000973b      0x443 bld/mmu.o
+ .debug_info    0x0000000000009b7e      0xc3b bld/round_robin.o
+ .debug_info    0x000000000000a7b9      0x37d bld/rpi_aux.o
+ .debug_info    0x000000000000ab36      0x58b bld/rpi_gpio.o
+ .debug_info    0x000000000000b0c1      0x48f bld/rpi_i2c.o
+ .debug_info    0x000000000000b550      0x339 bld/rpi_irq.o
+ .debug_info    0x000000000000b889      0x13c bld/rpi_systimer.o
+ .debug_info    0x000000000000b9c5      0x849 bld/printf.o
+ .debug_info    0x000000000000c20e       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
+ .debug_info    0x000000000000c2bc       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
+ .debug_info    0x000000000000c36a       0xae /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000000000000c418      0x934 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_info    0x000000000000cd4c      0x91b /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.debug_abbrev   0x0000000000000000     0x2aaf
+.debug_abbrev   0x0000000000000000     0x2be2
  .debug_abbrev  0x0000000000000000      0x215 bld/list.o
  .debug_abbrev  0x0000000000000215      0x3b9 bld/queue.o
  .debug_abbrev  0x00000000000005ce      0x471 bld/tasks.o
@@ -430,39 +429,39 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_abbrev  0x0000000000000d5a      0x373 bld/event_groups.o
  .debug_abbrev  0x00000000000010cd      0x2b7 bld/port.o
  .debug_abbrev  0x0000000000001384      0x231 bld/portISR.o
- .debug_abbrev  0x00000000000015b5      0x4b0 bld/freertos_porting_layer.o
- .debug_abbrev  0x0000000000001a65      0x1a6 bld/mmu.o
- .debug_abbrev  0x0000000000001c0b      0x15c bld/mutex.o
- .debug_abbrev  0x0000000000001d67      0x1b9 bld/rpi_aux.o
- .debug_abbrev  0x0000000000001f20      0x1eb bld/rpi_gpio.o
- .debug_abbrev  0x000000000000210b      0x15a bld/rpi_i2c.o
- .debug_abbrev  0x0000000000002265      0x16f bld/rpi_irq.o
- .debug_abbrev  0x00000000000023d4       0x98 bld/rpi_systimer.o
- .debug_abbrev  0x000000000000246c      0x261 bld/printf.o
- .debug_abbrev  0x00000000000026cd       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
- .debug_abbrev  0x00000000000026e1       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
- .debug_abbrev  0x00000000000026f5       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
- .debug_abbrev  0x0000000000002709      0x1d9 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
- .debug_abbrev  0x00000000000028e2      0x1cd /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .debug_abbrev  0x00000000000015b5      0x4a1 bld/freertos_porting_layer.o
+ .debug_abbrev  0x0000000000001a56      0x1a6 bld/mmu.o
+ .debug_abbrev  0x0000000000001bfc      0x29e bld/round_robin.o
+ .debug_abbrev  0x0000000000001e9a      0x1b9 bld/rpi_aux.o
+ .debug_abbrev  0x0000000000002053      0x1eb bld/rpi_gpio.o
+ .debug_abbrev  0x000000000000223e      0x15a bld/rpi_i2c.o
+ .debug_abbrev  0x0000000000002398      0x16f bld/rpi_irq.o
+ .debug_abbrev  0x0000000000002507       0x98 bld/rpi_systimer.o
+ .debug_abbrev  0x000000000000259f      0x261 bld/printf.o
+ .debug_abbrev  0x0000000000002800       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x0000000000002814       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
+ .debug_abbrev  0x0000000000002828       0x14 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x000000000000283c      0x1d9 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_abbrev  0x0000000000002a15      0x1cd /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.debug_loc      0x0000000000000000     0x7638
+.debug_loc      0x0000000000000000     0x75f1
  .debug_loc     0x0000000000000000       0x3f bld/list.o
  .debug_loc     0x000000000000003f      0xff2 bld/queue.o
  .debug_loc     0x0000000000001031     0x131f bld/tasks.o
  .debug_loc     0x0000000000002350      0x388 bld/heap_4.o
  .debug_loc     0x00000000000026d8      0x8b2 bld/event_groups.o
  .debug_loc     0x0000000000002f8a       0xcc bld/port.o
- .debug_loc     0x0000000000003056      0x671 bld/freertos_porting_layer.o
- .debug_loc     0x00000000000036c7      0x1a3 bld/mmu.o
- .debug_loc     0x000000000000386a      0x231 bld/mutex.o
- .debug_loc     0x0000000000003a9b      0x104 bld/rpi_aux.o
- .debug_loc     0x0000000000003b9f      0x394 bld/rpi_gpio.o
- .debug_loc     0x0000000000003f33      0x45a bld/rpi_i2c.o
- .debug_loc     0x000000000000438d      0x1cd bld/rpi_irq.o
- .debug_loc     0x000000000000455a       0xcf bld/rpi_systimer.o
- .debug_loc     0x0000000000004629     0x2b92 bld/printf.o
- .debug_loc     0x00000000000071bb      0x25a /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
- .debug_loc     0x0000000000007415      0x223 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .debug_loc     0x0000000000003056      0x67a bld/freertos_porting_layer.o
+ .debug_loc     0x00000000000036d0      0x1a3 bld/mmu.o
+ .debug_loc     0x0000000000003873      0x1e1 bld/round_robin.o
+ .debug_loc     0x0000000000003a54      0x104 bld/rpi_aux.o
+ .debug_loc     0x0000000000003b58      0x394 bld/rpi_gpio.o
+ .debug_loc     0x0000000000003eec      0x45a bld/rpi_i2c.o
+ .debug_loc     0x0000000000004346      0x1cd bld/rpi_irq.o
+ .debug_loc     0x0000000000004513       0xcf bld/rpi_systimer.o
+ .debug_loc     0x00000000000045e2     0x2b92 bld/printf.o
+ .debug_loc     0x0000000000007174      0x25a /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_loc     0x00000000000073ce      0x223 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
 .debug_aranges  0x0000000000000000      0x2a8
  .debug_aranges
@@ -484,7 +483,7 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000100       0x20 bld/mmu.o
  .debug_aranges
-                0x0000000000000120       0x28 bld/mutex.o
+                0x0000000000000120       0x28 bld/round_robin.o
  .debug_aranges
                 0x0000000000000148       0x20 bld/rpi_aux.o
  .debug_aranges
@@ -508,65 +507,65 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000288       0x20 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.debug_line     0x0000000000000000     0x3151
- .debug_line    0x0000000000000000      0x231 bld/list.o
- .debug_line    0x0000000000000231      0x59e bld/queue.o
- .debug_line    0x00000000000007cf      0x6fc bld/tasks.o
- .debug_line    0x0000000000000ecb      0x2ab bld/heap_4.o
- .debug_line    0x0000000000001176      0x32b bld/event_groups.o
- .debug_line    0x00000000000014a1      0x282 bld/port.o
- .debug_line    0x0000000000001723      0x1d7 bld/portISR.o
- .debug_line    0x00000000000018fa      0x3d2 bld/freertos_porting_layer.o
- .debug_line    0x0000000000001ccc      0x1a3 bld/mmu.o
- .debug_line    0x0000000000001e6f      0x249 bld/mutex.o
- .debug_line    0x00000000000020b8      0x174 bld/rpi_aux.o
- .debug_line    0x000000000000222c      0x157 bld/rpi_gpio.o
- .debug_line    0x0000000000002383      0x189 bld/rpi_i2c.o
- .debug_line    0x000000000000250c      0x158 bld/rpi_irq.o
- .debug_line    0x0000000000002664      0x110 bld/rpi_systimer.o
- .debug_line    0x0000000000002774      0x57e bld/printf.o
- .debug_line    0x0000000000002cf2       0x78 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
- .debug_line    0x0000000000002d6a       0x84 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
- .debug_line    0x0000000000002dee       0x5b /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
- .debug_line    0x0000000000002e49      0x196 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
- .debug_line    0x0000000000002fdf      0x172 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+.debug_line     0x0000000000000000     0x3504
+ .debug_line    0x0000000000000000      0x279 bld/list.o
+ .debug_line    0x0000000000000279      0x5e6 bld/queue.o
+ .debug_line    0x000000000000085f      0x744 bld/tasks.o
+ .debug_line    0x0000000000000fa3      0x2f3 bld/heap_4.o
+ .debug_line    0x0000000000001296      0x373 bld/event_groups.o
+ .debug_line    0x0000000000001609      0x2ca bld/port.o
+ .debug_line    0x00000000000018d3      0x207 bld/portISR.o
+ .debug_line    0x0000000000001ada      0x45f bld/freertos_porting_layer.o
+ .debug_line    0x0000000000001f39      0x1bb bld/mmu.o
+ .debug_line    0x00000000000020f4      0x2e7 bld/round_robin.o
+ .debug_line    0x00000000000023db      0x18c bld/rpi_aux.o
+ .debug_line    0x0000000000002567      0x16f bld/rpi_gpio.o
+ .debug_line    0x00000000000026d6      0x1a1 bld/rpi_i2c.o
+ .debug_line    0x0000000000002877      0x170 bld/rpi_irq.o
+ .debug_line    0x00000000000029e7      0x128 bld/rpi_systimer.o
+ .debug_line    0x0000000000002b0f      0x596 bld/printf.o
+ .debug_line    0x00000000000030a5       0x78 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_udivsi3.o)
+ .debug_line    0x000000000000311d       0x84 /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_divsi3.o)
+ .debug_line    0x00000000000031a1       0x5b /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00000000000031fc      0x196 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_line    0x0000000000003392      0x172 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.debug_str      0x0000000000000000     0x2f1e
- .debug_str     0x0000000000000000      0x5f0 bld/list.o
-                                        0x66f (size before relaxing)
- .debug_str     0x00000000000005f0      0x6cc bld/queue.o
-                                        0xcba (size before relaxing)
- .debug_str     0x0000000000000cbc      0x892 bld/tasks.o
-                                       0x10be (size before relaxing)
- .debug_str     0x000000000000154e      0x1fa bld/heap_4.o
-                                        0x72f (size before relaxing)
- .debug_str     0x0000000000001748      0x296 bld/event_groups.o
-                                        0x97e (size before relaxing)
- .debug_str     0x00000000000019de      0x156 bld/port.o
-                                        0x71d (size before relaxing)
- .debug_str     0x0000000000001b34      0x11f bld/portISR.o
-                                        0x659 (size before relaxing)
- .debug_str     0x0000000000001c53      0x55e bld/freertos_porting_layer.o
-                                        0xc29 (size before relaxing)
- .debug_str     0x00000000000021b1      0x27a bld/mmu.o
-                                        0x3ac (size before relaxing)
- .debug_str     0x000000000000242b       0xcb bld/mutex.o
-                                        0x3ab (size before relaxing)
- .debug_str     0x00000000000024f6      0x13c bld/rpi_aux.o
-                                        0x246 (size before relaxing)
- .debug_str     0x0000000000002632      0x28e bld/rpi_gpio.o
-                                        0x39b (size before relaxing)
- .debug_str     0x00000000000028c0      0x16b bld/rpi_i2c.o
-                                        0x2f8 (size before relaxing)
- .debug_str     0x0000000000002a2b      0x18e bld/rpi_irq.o
-                                        0x2df (size before relaxing)
- .debug_str     0x0000000000002bb9       0x9e bld/rpi_systimer.o
-                                        0x181 (size before relaxing)
- .debug_str     0x0000000000002c57      0x15c bld/printf.o
-                                        0x29a (size before relaxing)
- .debug_str     0x0000000000002db3       0xe1 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+.debug_str      0x0000000000000000     0x30fd
+ .debug_str     0x0000000000000000      0x608 bld/list.o
+                                        0x687 (size before relaxing)
+ .debug_str     0x0000000000000608      0x6e4 bld/queue.o
+                                        0xcd2 (size before relaxing)
+ .debug_str     0x0000000000000cec      0x8aa bld/tasks.o
+                                       0x10d6 (size before relaxing)
+ .debug_str     0x0000000000001596      0x212 bld/heap_4.o
+                                        0x747 (size before relaxing)
+ .debug_str     0x00000000000017a8      0x2ae bld/event_groups.o
+                                        0x996 (size before relaxing)
+ .debug_str     0x0000000000001a56      0x16e bld/port.o
+                                        0x735 (size before relaxing)
+ .debug_str     0x0000000000001bc4      0x137 bld/portISR.o
+                                        0x671 (size before relaxing)
+ .debug_str     0x0000000000001cfb      0x576 bld/freertos_porting_layer.o
+                                        0xc41 (size before relaxing)
+ .debug_str     0x0000000000002271      0x292 bld/mmu.o
+                                        0x3c4 (size before relaxing)
+ .debug_str     0x0000000000002503      0x142 bld/round_robin.o
+                                        0x76e (size before relaxing)
+ .debug_str     0x0000000000002645      0x154 bld/rpi_aux.o
+                                        0x25e (size before relaxing)
+ .debug_str     0x0000000000002799      0x2a6 bld/rpi_gpio.o
+                                        0x3b3 (size before relaxing)
+ .debug_str     0x0000000000002a3f      0x183 bld/rpi_i2c.o
+                                        0x310 (size before relaxing)
+ .debug_str     0x0000000000002bc2      0x1a6 bld/rpi_irq.o
+                                        0x2f7 (size before relaxing)
+ .debug_str     0x0000000000002d68       0xb6 bld/rpi_systimer.o
+                                        0x199 (size before relaxing)
+ .debug_str     0x0000000000002e1e      0x174 bld/printf.o
+                                        0x2ca (size before relaxing)
+ .debug_str     0x0000000000002f92       0xe1 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
                                         0x562 (size before relaxing)
- .debug_str     0x0000000000002e94       0x8a /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .debug_str     0x0000000000003073       0x8a /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
                                         0x53d (size before relaxing)
 
 .comment        0x0000000000000000       0x31
@@ -580,7 +579,7 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .comment       0x0000000000000031       0x32 bld/portISR.o
  .comment       0x0000000000000031       0x32 bld/freertos_porting_layer.o
  .comment       0x0000000000000031       0x32 bld/mmu.o
- .comment       0x0000000000000031       0x32 bld/mutex.o
+ .comment       0x0000000000000031       0x32 bld/round_robin.o
  .comment       0x0000000000000031       0x32 bld/rpi_aux.o
  .comment       0x0000000000000031       0x32 bld/rpi_gpio.o
  .comment       0x0000000000000031       0x32 bld/rpi_i2c.o
@@ -615,7 +614,7 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .ARM.attributes
                 0x00000000000001ca       0x2f bld/mmu.o
  .ARM.attributes
-                0x00000000000001f9       0x2f bld/mutex.o
+                0x00000000000001f9       0x2f bld/round_robin.o
  .ARM.attributes
                 0x0000000000000228       0x2f bld/rpi_aux.o
  .ARM.attributes
@@ -647,9 +646,9 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_frame   0x00000000000007f4      0x10c bld/event_groups.o
  .debug_frame   0x0000000000000900       0xbc bld/port.o
  .debug_frame   0x00000000000009bc       0x3c bld/portISR.o
- .debug_frame   0x00000000000009f8      0x340 bld/freertos_porting_layer.o
- .debug_frame   0x0000000000000d38       0x60 bld/mmu.o
- .debug_frame   0x0000000000000d98       0xa0 bld/mutex.o
+ .debug_frame   0x00000000000009f8      0x34c bld/freertos_porting_layer.o
+ .debug_frame   0x0000000000000d44       0x60 bld/mmu.o
+ .debug_frame   0x0000000000000da4       0x94 bld/round_robin.o
  .debug_frame   0x0000000000000e38       0xb4 bld/rpi_aux.o
  .debug_frame   0x0000000000000eec       0x9c bld/rpi_gpio.o
  .debug_frame   0x0000000000000f88       0xb8 bld/rpi_i2c.o
@@ -661,13 +660,13 @@ OUTPUT(kernel7.elf elf32-littlearm)
  .debug_frame   0x00000000000011ec       0x44 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
  .debug_frame   0x0000000000001230       0x30 /usr/lib/arm-none-eabi/lib/libc.a(lib_a-memset.o)
 
-.debug_ranges   0x0000000000000000      0x820
+.debug_ranges   0x0000000000000000      0x838
  .debug_ranges  0x0000000000000000      0x198 bld/queue.o
  .debug_ranges  0x0000000000000198      0x220 bld/tasks.o
  .debug_ranges  0x00000000000003b8       0x60 bld/event_groups.o
  .debug_ranges  0x0000000000000418       0x60 bld/freertos_porting_layer.o
  .debug_ranges  0x0000000000000478       0x40 bld/mmu.o
- .debug_ranges  0x00000000000004b8       0x18 bld/mutex.o
- .debug_ranges  0x00000000000004d0       0x40 bld/rpi_aux.o
- .debug_ranges  0x0000000000000510       0x40 bld/rpi_gpio.o
- .debug_ranges  0x0000000000000550      0x2d0 bld/printf.o
+ .debug_ranges  0x00000000000004b8       0x30 bld/round_robin.o
+ .debug_ranges  0x00000000000004e8       0x40 bld/rpi_aux.o
+ .debug_ranges  0x0000000000000528       0x40 bld/rpi_gpio.o
+ .debug_ranges  0x0000000000000568      0x2d0 bld/printf.o

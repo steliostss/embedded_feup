@@ -100,8 +100,10 @@ void no_initialize_test(no_task_entry_t init_test_fct)
 	start_trace();
 #endif
 
+	rpi_aux_mu_string("INIT FUN");
 	init_test_fct(NULL);
 
+	rpi_aux_mu_string("START SCHED");
 	vTaskStartScheduler();
 }
 
@@ -178,12 +180,12 @@ no_time_t no_time_get()
 long no_time_diff(const no_time_t* t1, const no_time_t* t2)
 {
 	long diff = ((long)*t2 - (long)*t1);
-	//no_single_result_report("t2 ", *t2);
-	//no_single_result_report("t1 ", *t1);
-	/*if (diff < 0)
+	no_single_result_report("t2 ", *t2);
+	no_single_result_report("t1 ", *t1);
+	if (diff < 0)
 	{
 		diff = -diff;
-	}*/
+	}
 	return diff;
 }
 
@@ -313,6 +315,7 @@ unsigned int no_cycle_get_count()
 
 void no_single_result_report(char* prefix, int64_t time)
 {
+	rpi_aux_mu_string("REP");
 	memset(printfbuf, '\0', 100);
 	int32_t test = (int32_t)time;
 	sprintf(printfbuf, "%s%d", prefix, test);

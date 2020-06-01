@@ -4,7 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#define NO_VERBOSE_RESULTS
+//#define NO_VERBOSE_RESULTS
 
 #include "porting_layer.h"
 
@@ -18,7 +18,7 @@
 #define NB_ITER 1000
 #endif
 
-#define NB_TASK 5
+#define NB_TASK 2 // 5
 
 no_task_retval_t task(no_task_argument_t args);
 no_task_retval_t round_robin_stress_initialize_test(no_task_argument_t args);
@@ -31,7 +31,7 @@ DECLARE_TIME_COUNTERS(no_time_t, _)
 volatile int tasks_idx;
 volatile int tasks_done_count;
 
-int64_t results[NB_ITER];
+int32_t results[NB_ITER];
 
 no_main_retval_t main(no_main_argument_t args)
 {
@@ -65,7 +65,7 @@ no_task_retval_t task(no_task_argument_t args)
 	local_idx = tasks_idx++;
 	if (local_idx == 0)
 	{
-		DECLARE_TIME_STATS(int64_t)
+		DECLARE_TIME_STATS(int32_t)
 		for (i = 0; i < NB_ITER; i++)
 		{
 			//DO_WORKLOAD(i)
@@ -76,10 +76,12 @@ no_task_retval_t task(no_task_argument_t args)
 				COMPUTE_TIME_STATS(_, i);
 			}
 		}
-		for (i = 0; i < NB_ITER; i++)
+		/*for (i = 0; i < NB_ITER; i++)
 		{
 			printf("%ld\n", results[i]);
-		}
+			no_single_result_report("i=", results[i]);
+		}*/
+		no_serial_write("R");
 		REPORT_BENCHMARK_RESULTS("-- cooperating scheduling ctx switch --")
 	}
 	else if (local_idx == 1)
@@ -87,6 +89,7 @@ no_task_retval_t task(no_task_argument_t args)
 		for (i = 0; i < NB_ITER; i++)
 		{
 			//DO_WORKLOAD(i)
+			no_serial_write("2");
 			no_task_yield();
 			WRITE_T2_COUNTER(_)
 		}
