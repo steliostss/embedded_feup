@@ -4,7 +4,7 @@
 targets=(
 	"interrupt_processing"
 	"event"
-	"event_processing" 
+	"event_processing"
 	"mq"
 	"mq_workload"
 	"mutex"
@@ -18,15 +18,15 @@ targets=(
 	"jitter")
 
 #rm -rf eample/kernel/tests
-mkdir example/freertos-rpi2/kernel_tests/
+mkdir example/linux/kernel_tests/
 
 for i in "${targets[@]}"
-do 
+do
   echo $i
   make clean
-  make $i 
-  rm -rf example/freertos-rpi2/kernel_tests/$i/
-  mkdir /example/freertos-rpi2/kernel_tests/$i/
-  cp example/freertos-rpi2/kernel7.img example/freertos-rpi2/kernel_tests/$i/
+  make $i "EXAMPLE=linux"
+  rm -rf example/linux/kernel_tests/$i/
+  mkdir example/linux/kernel_tests/$i/
+  # cp example/freertos-rpi2/kernel7.img example/freertos-rpi2/kernel_tests/$i/
   echo "done"
 done
