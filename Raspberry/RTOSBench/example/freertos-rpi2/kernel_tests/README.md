@@ -9,13 +9,21 @@ I am also putting the outputs from console to these files.
 
 - the most important is to understand what are the timers t1,t2 
 
-- note/question: for round robin I run it now with 2 tasks, is it a problem?
+- if the t1/t2 number is negative just take -t1/-t2 (they also do it in the code)
+
+- note/question: for round robin I am running it now with 2 tasks, is it a problem?
 
 #### Done test
 - round_robin
 - sem
 - sem_prio
 - sem_processing
+- mutex
+- mutex_pip
+- mutex_processing
+- mutex_workload
+- mq
+- mq_workload
 
 - event\* missing in test folder!
 - interrupt_processing is giving no results!
