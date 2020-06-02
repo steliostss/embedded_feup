@@ -18,15 +18,22 @@ targets=(
 	"jitter")
 
 #rm -rf eample/kernel/tests
-mkdir example/linux/kernel_tests/
+#mkdir example/linux/kernel_tests/
+
+# if you want to make freertos-rpi2 change variable name below
+example="linux"
+#example="freertos-rpi2
+cd example/$example/
+mkdir kernel_tests
+
 
 for i in "${targets[@]}"
 do
   echo $i
   make clean
-  make $i "EXAMPLE=linux"
-  rm -rf example/linux/kernel_tests/$i/
-  mkdir example/linux/kernel_tests/$i/
+  make $i "EXAMPLE="$example
+  rm -rf example/$example/$i/
+  mkdir example/$example/$i/
   # cp example/freertos-rpi2/kernel7.img example/freertos-rpi2/kernel_tests/$i/
   echo "done"
 done
