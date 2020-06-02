@@ -16,6 +16,22 @@ endif
 
 .PHONY: clean
 
+nothing:
+	@echo "Usage:" 
+	@echo "    make EXAMPLE=<example> <test>"
+	@echo ""
+	@echo "possible examples = "
+	@echo "    {linux, freertos-rpi2}"
+	@echo "possible tests = "
+	@echo "    {"
+	@echo "     interrupt_processing, event, event_processing,"
+	@echo "     mq, mq_workload, mutex, mutex_pip, mutex_workload,"
+	@echo "     mutex_processing, sched_latency, sem, sem_processing,"
+	@echo "     sem_prio, jitter}"
+	@echo "    }"
+	@echo ""
+	@echo "To clean:"
+	@echo "    make clean"
 clean:
 	bash clean_script.sh
 	# make -C example/$(EXAMPLE) clean
