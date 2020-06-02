@@ -22,6 +22,7 @@ cd example/linux/
 for i in "${targets[@]}"
 do
   echo $i
+  cd $i"_folder"
   sudo ./$i &> $i.txt
   echo &>> $i.txt
   echo "-----------------------new execution----------------------" >> $i.txt
@@ -33,4 +34,5 @@ do
   sudo ./$i &>> $i.txt
   echo "done"
   echo &>> $i.txt
+  cd ..
 done
