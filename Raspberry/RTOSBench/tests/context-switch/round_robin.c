@@ -18,7 +18,7 @@
 #define NB_ITER 1000
 #endif
 
-#define NB_TASK 2 // 5
+#define NB_TASK 5 // 2
 
 no_task_retval_t task(no_task_argument_t args);
 no_task_retval_t round_robin_stress_initialize_test(no_task_argument_t args);
@@ -62,6 +62,15 @@ no_task_retval_t task(no_task_argument_t args)
 	int32_t i;
 	int32_t local_idx;
 
+	/*
+	 * A task pool is created and each one has a specific memory stack
+	 * allocated for every purpose. Each task also has its own "copy" of the code
+	 * When a task enters the first part it increments the tasks_idx and 
+	 * gets a unique ID. Unique because tasks_idx is "volatile" (shared variable
+	 * in a multitasking application) 
+	 * Only task 0 and task 1 count t1 and t2. If there are more tasks they just 
+	 * switch context.
+	 */
 	local_idx = tasks_idx++;
 	if (local_idx == 0)
 	{
@@ -69,10 +78,44 @@ no_task_retval_t task(no_task_argument_t args)
 		for (i = 0; i < NB_ITER; i++)
 		{
 			//DO_WORKLOAD(i)
+			/*
+			 * #define WRITE_T1_COUNTER(SUFFIX) \
+			 * t1 = time_get();
+			 * 
+			 * so actually get time and save to t1
+			 * IMPORTANT: t1 is saved "locally": in the memory
+			 * stack of the task, and it is not global.
+			 */
 			WRITE_T1_COUNTER(_)
-			no_task_yield();
-			if (i > 0)
+			/*
+			 * taskYIELD() is used to request a context switch
+			 * to another task. However, if there are no other
+			 * tasks at a higher or equal priority to the task
+			 * that calls taskYIELD() then the RTOS scheduler
+			 * will simply select the task that called
+			 * taskYIELD() to run again.
+			 * 
+			 * So execution below is like:
+			 * no_task_yield() ->  taskYIELD() -> portYIELD() -> asm code
+			 */
+			no_task_yield(); 
+			/* 
+			 * If there is a task with greater priority
+			 * then execution pauses here and another task
+			 * continues.
+			 * After some cycles passes by this task gets 
+			 * top priority again then execution is continued
+			 * from here again and we calculate the t2-t1
+			 */
+			if (i > 0) 
 			{
+				/* 
+				 * the check is for the first iteration, to ensure 
+				 * that some time has passed by.
+				 * one iteration is really fast compared to two or more
+				 * or even context switch. 
+				 * time_diff(t1, t2)
+				 */
 				COMPUTE_TIME_STATS(_, i);
 			}
 		}
@@ -91,6 +134,13 @@ no_task_retval_t task(no_task_argument_t args)
 			//DO_WORKLOAD(i)
 			no_serial_write("2");
 			no_task_yield();
+			/*
+			 * #define WRITE_T2_COUNTER(SUFFIX) \
+			 * t2 = time_get();
+			 * 
+			 * basically here, we compute t2 (time passed after t1 was calculated)
+			 * and we continue to 
+			 */
 			WRITE_T2_COUNTER(_)
 		}
 	}
