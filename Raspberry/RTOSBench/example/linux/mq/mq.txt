@@ -1,0 +1,10 @@
+setting up affinity 2
+setting up prio 10
+-- MQ: Receive block --
+max=44959
+min=1883
+average=0
+-- MQ: Signal unblock --
+max=108333
+min=2306
+average=0

@@ -1,0 +1,10 @@
+sudo: ./sched_latency: command not found
+
+-----------------------new execution----------------------
+
+sudo: ./sched_latency: command not found
+
+-----------------------new execution----------------------
+
+sudo: ./sched_latency: command not found
+

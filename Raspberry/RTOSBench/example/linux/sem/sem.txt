@@ -1,0 +1,10 @@
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=18420
+min=1916
+average=0
+-- Sem: Signal unblock --
+max=89056
+min=2058
+average=0

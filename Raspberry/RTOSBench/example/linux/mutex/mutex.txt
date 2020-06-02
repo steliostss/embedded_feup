@@ -1,0 +1,10 @@
+setting up affinity 2
+setting up prio 10
+-- Mutex release unblock --
+max=14903
+min=2081
+average=0
+-- Mutex request block --
+max=8414
+min=-73894
+average=0

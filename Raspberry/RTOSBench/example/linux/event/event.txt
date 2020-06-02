@@ -1,0 +1,10 @@
+sudo: ./event: command not found
+
+-----------------------new execution----------------------
+
+sudo: ./event: command not found
+
+-----------------------new execution----------------------
+
+sudo: ./event: command not found
+
