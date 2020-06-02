@@ -18,12 +18,10 @@ targets=(
 
 cd example/linux/
 
-cd i
-
 for i in "${targets[@]}"
 do
 #	mv $i executables/
 #	mkdir $i
 #	mv $i.txt $i/
-	mv $i ../$i/
+	mv $i $i"_folder"
 done
