@@ -11,7 +11,7 @@ BASE_PRIO = 10
 endif
 
 ifndef AFFINITY
-AFFINITY = 7
+AFFINITY = 2
 endif
 
 .PHONY: clean
