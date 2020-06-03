@@ -78,6 +78,7 @@ no_task_retval_t TC_low_prio(no_task_argument_t args)
 	}
 
 	REPORT_BENCHMARK_RESULTS("--- Mutex PIP---");
+	// PIP = Platform-Independent Primitives
 
 	no_task_suspend_self();
 
@@ -102,6 +103,7 @@ no_task_retval_t TA_high_prio(no_task_argument_t args)
 {
 	int i;
 
+	// FULL EXPLANATION BELOW
 	/*  Measure signaling time with priority:
 	 *
 	 * 1 - TA blocks waiting on aux_sem
