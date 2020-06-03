@@ -35,6 +35,13 @@ no_sem_t sem;
 
 DECLARE_TIME_COUNTERS(no_time_t, _)
 
+/*
+ * Refer to mq_workload explanation comments to understand this test.
+ * The operation has a similar structure with the main difference being
+ * that here we use semaphores.
+ * 2 tasks performing send-receive operations and the rest doing some workload.
+ */
+
 no_main_retval_t main(no_main_argument_t args)
 {
 	no_initialize_test(sem_initialize_test);
