@@ -1,10 +1,365 @@
+-----------------------sem new execution----------------------
 setting up affinity 2
 setting up prio 10
 -- Sem: Wait block --
-max=18420
-min=1916
+max=167183
+min=1515
 average=0
 -- Sem: Signal unblock --
-max=89056
-min=2058
+max=113778
+min=1615
 average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=14454
+min=1508
+average=0
+-- Sem: Signal unblock --
+max=128897
+min=1626
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=38104
+min=1534
+average=0
+-- Sem: Signal unblock --
+max=171323
+min=1642
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=40440
+min=1507
+average=0
+-- Sem: Signal unblock --
+max=124478
+min=1625
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=36194
+min=1509
+average=0
+-- Sem: Signal unblock --
+max=90582
+min=1625
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=30693
+min=1512
+average=0
+-- Sem: Signal unblock --
+max=94357
+min=1618
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=24429
+min=1516
+average=0
+-- Sem: Signal unblock --
+max=183568
+min=1618
+average=0
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=19647
+min=1520
+average=0
+-- Sem: Signal unblock --
+max=224976
+min=1753
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=21993
+min=1514
+average=0
+-- Sem: Signal unblock --
+max=473613
+min=246698
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=41752
+min=1511
+average=0
+-- Sem: Signal unblock --
+max=86372
+min=1630
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=27762
+min=1517
+average=0
+-- Sem: Signal unblock --
+max=205002
+min=1639
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=20009
+min=1505
+average=0
+-- Sem: Signal unblock --
+max=151480
+min=1614
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=18285
+min=1504
+average=0
+-- Sem: Signal unblock --
+max=67431
+min=1619
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=231630
+min=1510
+average=0
+-- Sem: Signal unblock --
+max=73896
+min=1609
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=13430
+min=1513
+average=0
+-- Sem: Signal unblock --
+max=166385
+min=1666
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=18835
+min=1505
+average=0
+-- Sem: Signal unblock --
+max=121941
+min=1609
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=39127
+min=1529
+average=0
+-- Sem: Signal unblock --
+max=70820
+min=1644
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=24130
+min=1519
+average=0
+-- Sem: Signal unblock --
+max=66426
+min=1659
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=25034
+min=1511
+average=0
+-- Sem: Signal unblock --
+max=67561
+min=1615
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=143043
+min=1508
+average=0
+-- Sem: Signal unblock --
+max=138652
+min=1616
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=18022
+min=1515
+average=0
+-- Sem: Signal unblock --
+max=91832
+min=1624
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=19160
+min=1515
+average=0
+-- Sem: Signal unblock --
+max=81812
+min=1622
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=302851
+min=1516
+average=0
+-- Sem: Signal unblock --
+max=87703
+min=1620
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=63435
+min=1515
+average=0
+-- Sem: Signal unblock --
+max=105204
+min=1626
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=163814
+min=1510
+average=0
+-- Sem: Signal unblock --
+max=244611
+min=1624
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=48817
+min=1508
+average=0
+-- Sem: Signal unblock --
+max=85780
+min=1622
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=16701
+min=1524
+average=0
+-- Sem: Signal unblock --
+max=86870
+min=1621
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=16120
+min=1505
+average=0
+-- Sem: Signal unblock --
+max=224793
+min=1623
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=55605
+min=1499
+average=0
+-- Sem: Signal unblock --
+max=92500
+min=1682
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=51867
+min=1564
+average=0
+-- Sem: Signal unblock --
+max=177308
+min=1677
+average=0
+
+-----------------------sem new execution----------------------
+setting up affinity 2
+setting up prio 10
+-- Sem: Wait block --
+max=17008
+min=1523
+average=0
+-- Sem: Signal unblock --
+max=86242
+min=1625
+average=0
+
