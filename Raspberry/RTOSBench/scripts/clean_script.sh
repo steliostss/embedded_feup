@@ -2,15 +2,12 @@
 
 targets=(
 	"interrupt_processing"
-	"event"
-	"event_processing"
 	"mq"
 	"mq_workload"
 	"mutex"
 	"mutex_pip"
 	"mutex_workload"
 	"mutex_processing"
-	"sched_latency"
 	"sem"
 	"sem_processing"
 	"sem_prio"
@@ -21,8 +18,8 @@ rm -rf bld/
 
 for i in "${targets[@]}"
 do
-  echo "Cleaning $i"
-  cd $i"_folder"
-  rm $i
-  cd ..
+	echo "Cleaning $i"
+	cd $i"_folder"
+	rm $i
+	cd ..
 done
