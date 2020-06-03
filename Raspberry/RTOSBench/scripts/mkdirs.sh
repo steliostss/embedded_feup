@@ -16,13 +16,12 @@ targets=(
 	"sem_prio"
 	"jitter")
 
-cd example/linux
-rm -rf bld/
+cd ../example/linux/
 
 for i in "${targets[@]}"
 do
-  echo "Cleaning $i"
-  cd $i"_folder"
-  rm $i
-  cd ..
+#	mv $i executables/
+#	mkdir $i
+#	mv $i.txt $i/
+	mv $i $i"_folder"
 done
