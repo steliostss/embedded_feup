@@ -20,7 +20,7 @@
 #define BASE_THREAD_COUNT 10
 
 #ifndef NO_AFFINITY
-#define NO_AFFINITY 7
+#define NO_AFFINITY 2
 #endif
 
 #define USEC_PER_SEC		1000000
