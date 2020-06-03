@@ -48,7 +48,10 @@ no_task_retval_t task(no_task_argument_t args)
 	DECLARE_TIME_COUNTERS(no_time_t, recv)
 	DECLARE_TIME_STATS(int64_t)
 
-	/* 1a - Measure MQ send . */
+	/* 
+	 * 1a - Measure MQ send.
+	 * count(t1) -> send() -> count(t2) -> receive()
+	 */
 	for (i = 0; i < NB_ITER; i++)
 	{
 		WRITE_T1_COUNTER(send)
@@ -64,7 +67,10 @@ no_task_retval_t task(no_task_argument_t args)
 	REPORT_BENCHMARK_RESULTS("--- MQ Send ---");
 	RESET_TIME_STATS();
 
-	/* 1a - Measure MQ receive. */
+	/* 
+	 * 1a - Measure MQ receive.
+	 * send() -> count(t1) -> receive() -> count(t2)
+	 */
 	for (i = 0; i < NB_ITER; i++)
 	{
 		no_mq_send(&mq, 1);
@@ -83,3 +89,8 @@ no_task_retval_t task(no_task_argument_t args)
 
 	return TASK_DEFAULT_RETURN;
 }
+
+/*
+ * This test is doing similar work with "mq.c" and "mq_workload.c".
+ * The difference is that send and receive is performed by the same task. 
+ */
