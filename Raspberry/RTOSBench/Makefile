@@ -89,7 +89,7 @@ sched_latency:
 
 sem:
 	@make -C example/$(EXAMPLE) NO_TEST_SRC=sem.c NO_TEST_PATH=tests/semaphore NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
-	mv example/$(EXAMPLE)/semaphore example/$(EXAMPLE)/semaphore_folder/
+	mv example/$(EXAMPLE)/sem example/$(EXAMPLE)/sem_folder/
 
 sem_processing:
 	@make -C example/$(EXAMPLE) NO_TEST_SRC=sem_processing.c NO_TEST_PATH=tests/semaphore NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
