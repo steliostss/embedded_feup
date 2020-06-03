@@ -31,6 +31,15 @@ no_main_retval_t main(no_main_argument_t args)
 	return MAIN_DEFAULT_RETURN;
 }
 
+/*
+ * This test is pretty much the same procedure as all the other test,
+ * performed through many communication operations.
+ * This test works mutexes:
+ * atomic operations on variables assigned to each task specifically,
+ * that the tasks regurarly check to see if they are allowed to
+ * continue execution or they are blocked.
+ */
+
 no_task_retval_t mutex_initialize_test(no_task_argument_t args)
 {
 	no_sem_create(&aux_sem, 0);
