@@ -56,7 +56,7 @@ typedef void (*no_int_handler_t)(int, void*);
 #ifndef NO_VERBOSE_RESULTS
 #define REPORT_BENCHMARK_RESULTS(STR_PTR) do { \
 			no_serial_write(STR_PTR); \
-			no_result_report(max_cycles, min_cycles, average_cycles); \
+			no_result_report(max_cycles, min_cycles, average_cycles, counter); \
 			fflush(stdout); \
 		} while (0);
 #else
