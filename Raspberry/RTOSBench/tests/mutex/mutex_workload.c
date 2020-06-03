@@ -42,6 +42,13 @@ no_main_retval_t main(no_main_argument_t args)
 	return MAIN_DEFAULT_RETURN;
 }
 
+/*
+ * This test is an extension of mutex.c. Refer to that for further explanation.
+ * The difference here is that there are 2 tasks 
+ * communicating (blocking & unblocking execution)
+ * and the rest tasks are implementing some kind of workload
+ */
+
 no_task_retval_t mutex_initialize_test(no_task_argument_t args)
 {
 	int32_t i;
