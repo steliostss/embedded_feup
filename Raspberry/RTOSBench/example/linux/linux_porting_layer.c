@@ -206,12 +206,20 @@ no_time_t no_time_get()
 long no_time_diff(const no_time_t* t1, const no_time_t* t2)
 {
 	long diff;
-	diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
 	//printf("sec diff=%ld\n", diff);
-	diff += ((int) t2->tv_nsec - (int) t1->tv_nsec);
-	/*printf("nsec t2 - t1; %ld - %ld\n", t2->tv_nsec, t1->tv_nsec);
-	printf("sec t2 - t1; %ld - %ld", t2->tv_sec, t1->tv_sec);
-	printf("final diff=%ld\n", diff);*/
+	if (((int)t2->tv_nsec - (int)t1->tv_nsec) < 0)
+	{
+			diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
+            diff += t1->tv_nsec - t2->tv_nsec;
+    }
+    else 
+    {
+			diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
+            diff += t2->tv_nsec-t1->tv_nsec;
+	}
+	// printf("nsec t2 - t1; %ld - %ld\n", t2->tv_nsec, t1->tv_nsec);
+	// printf("sec t2 - t1; %ld - %ld\n", t2->tv_sec, t1->tv_sec);
+	printf("final diff=%ld\n", diff);
 	return diff;
 }
 
@@ -323,13 +331,15 @@ unsigned int no_cycle_get_count()
 	return res.tv_nsec;
 }
 
-void no_result_report(int64_t max, int64_t min, int64_t average)
+void no_result_report(int64_t max, int64_t min, int64_t average, int64_t counter)
 {
-	int a, b, c;
+	int a, b, c, d;
 	a = (int)max;
 	b = (int)min;
-	c = (int)average;
-	printf("max=%d\nmin=%d\naverage=%d\n", a, b, c);
+	d = (int)counter;
+	c = (float)average/(float)counter;
+
+	printf("max=%d\nmin=%d\naverage=%d\ncounter=%d\n", a, b, c, d);
 }
 
 void no_single_result_report(char* prefix, int64_t value)
