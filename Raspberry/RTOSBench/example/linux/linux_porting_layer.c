@@ -176,12 +176,21 @@ void no_reset_timer()
 {
 }
 
+/* 
+ * What I understood that this function does:
+ * is that (given the tick time of the CPU clock)
+ * it generates a time stamp with nanosecond accuracy
+ */
 no_time_t no_add_times(const no_time_t* base, unsigned int ticks)
 {
 	struct timespec* ts = (struct timespec*)base;
 	struct timespec time;
-	time.tv_nsec = ticks + ts->tv_nsec;
-	time.tv_sec = ts->tv_sec;
+	/*
+	 * POSIX.1b structure for a time value.
+	 * This is like a `struct timeval' but has nanoseconds(nsec) instead of microseconds.
+	 */
+	time.tv_nsec = ticks + ts->tv_nsec; // nanoseconds
+	time.tv_sec = ts->tv_sec; // seconds
 	tsnorm(&time);
 	return time;
 }
@@ -362,6 +371,10 @@ static void set_latency_target(void)
 /** TAKEN FOR rt-test **/
 static inline void tsnorm(struct timespec *ts)
 {
+	// what I understood:
+	// for every second that passes by:
+	// remove a second from ts->nanoseconds
+	// add a second to ts->seconds
 	while (ts->tv_nsec >= NSEC_PER_SEC) {
 		ts->tv_nsec -= NSEC_PER_SEC;
 		ts->tv_sec++;
