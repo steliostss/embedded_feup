@@ -15,7 +15,11 @@
 #define NB_ITER 1000
 #endif
 
-#define NB_TASK 0
+#ifndef NB_TASK
+// after analyzing the code NB_TASK
+// should not be set to 0 never
+#define NB_TASK 4 
+#endif
 
 no_task_retval_t monitor(no_task_argument_t args);
 no_task_retval_t task(no_task_argument_t args);
@@ -38,15 +42,19 @@ no_task_retval_t jitter_initialize_test(no_task_argument_t args)
 
 	for (i = 0 ; i < NB_TASK; i++)
 	{
-		tasks_name[i][0] = 65;
+		tasks_name[i][0] = 65;				// ASCII: A
 		tasks_name[i][1] = (65 + i) % 255;
 		tasks_name[i][2] = (66 + i) % 255;
 		tasks_name[i][3] = (67 + i) % 255;
 		tasks_name[i][4] = '\0';
 		tasks_handle[i] = no_create_task(task, tasks_name[i], BASE_PRIO - 1);
 	}
-
+	/* 
+	 * For tasks [0, N-2] we call the task function.
+	 * These tasks just permorm context switch.
+	 */
 	tasks_handle[NB_TASK + 1] = no_create_task(monitor, "MON", BASE_PRIO);
+	// for task N-1 we call the monitor function
 }
 
 no_task_retval_t task(no_task_argument_t args)
@@ -55,10 +63,10 @@ no_task_retval_t task(no_task_argument_t args)
 
 	for (i = 0; i < NB_ITER; i++)
 	{
-		no_task_yield();
+		no_task_yield(); // just permorm context switch.
 	}
 
-	no_task_suspend_self();
+	no_task_suspend_self(); // end task
 
 	return TASK_DEFAULT_RETURN;
 }
@@ -75,12 +83,14 @@ no_task_retval_t monitor(no_task_argument_t args)
 	for (i = 0; i < NB_ITER; i++)
 	{
 		time_t1 = no_time_get();
-		time_t1 = no_add_times(&time_t1, 500000000);
+		time_t1 = no_add_times(&time_t1, 500000000); 
+		// TODO: should we change value 500000000 ?
 
 		no_task_delay(400);
 
 		time_t2 = no_time_get();
-		diff = no_time_diff(&time_t1, &time_t2);
+		// get time difference with nanosecond accuracy
+		diff = no_time_diff(&time_t1, &time_t2); 
 		no_single_result_report("", diff);
 
 		no_task_yield();
