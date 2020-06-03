@@ -81,7 +81,7 @@ no_task_retval_t sender(no_task_argument_t args)
 		WRITE_T1_COUNTER(_)
 		no_mq_send(&mq, 1);
 		no_task_delay(DELAY_MS);
-	}s
+	}
 
 	no_task_suspend_self();
 
