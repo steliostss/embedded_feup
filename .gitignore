@@ -24,3 +24,4 @@ Raspberry/RTOSBench/example/linux/mutex_workload_folder/mutex_workload
 Raspberry/RTOSBench/example/linux/sem_folder/sem
 Raspberry/RTOSBench/example/linux/sem_prio_folder/sem_prio
 Raspberry/RTOSBench/example/linux/sem_processing_folder/sem_processing
+Raspberry/RTOSBench/example/linux/kernel_tests/
