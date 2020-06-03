@@ -26,6 +26,7 @@ Raspberry/RTOSBench/example/linux/sem_folder/sem
 Raspberry/RTOSBench/example/linux/sem_prio_folder/sem_prio
 Raspberry/RTOSBench/example/linux/sem_processing_folder/sem_processing
 Raspberry/RTOSBench/example/linux/kernel_tests/
+Raspberry/RTOSBench/example/linux/mq_processing_folder/mq_processing
 
 Raspberry/RTOSBench/example/linux/jitter
 Raspberry/RTOSBench/example/linux/mq
