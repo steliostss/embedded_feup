@@ -1,16 +1,252 @@
-setting up affinity 7
-Sched set affinity failed.
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=2352
+min=31
+average=0
+--- Sem: Wait ---
+max=161
+min=31
+average=0
 
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=9883
+min=30
+average=0
+--- Sem: Wait ---
+max=2172
+min=30
+average=0
 
------------------------new execution----------------------
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=3803
+min=30
+average=0
+--- Sem: Wait ---
+max=113
+min=30
+average=0
 
-setting up affinity 7
-Sched set affinity failed.
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=4089
+min=30
+average=0
+--- Sem: Wait ---
+max=6377
+min=30
+average=0
 
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=250
+min=30
+average=0
+--- Sem: Wait ---
+max=517
+min=30
+average=0
 
------------------------new execution----------------------
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=3298
+min=30
+average=0
+--- Sem: Wait ---
+max=118
+min=30
+average=0
 
-setting up affinity 7
-Sched set affinity failed.
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=275
+min=30
+average=0
+--- Sem: Wait ---
+max=2331
+min=30
+average=0
 
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=3206
+min=30
+average=0
+--- Sem: Wait ---
+max=146
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=11605
+min=30
+average=0
+--- Sem: Wait ---
+max=2459
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=856
+min=30
+average=0
+--- Sem: Wait ---
+max=46736
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=2693
+min=30
+average=0
+--- Sem: Wait ---
+max=3267
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=125
+min=30
+average=0
+--- Sem: Wait ---
+max=389
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=3814
+min=30
+average=0
+--- Sem: Wait ---
+max=3253
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=226
+min=30
+average=0
+--- Sem: Wait ---
+max=2177
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=205
+min=30
+average=0
+--- Sem: Wait ---
+max=385
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=162
+min=30
+average=0
+--- Sem: Wait ---
+max=88
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=3634
+min=30
+average=0
+--- Sem: Wait ---
+max=2223
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=263
+min=30
+average=0
+--- Sem: Wait ---
+max=2089
+min=30
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=837
+min=31
+average=0
+--- Sem: Wait ---
+max=7010
+min=31
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=319
+min=30
+average=0
+--- Sem: Wait ---
+max=2419
+min=31
+average=0
+
+-----------------------sem_processing new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- Sem: Signal ---
+max=217
+min=31
+average=0
+--- Sem: Wait ---
+max=4332
+min=32
+average=0
 
