@@ -27,7 +27,7 @@ nothing:
 	@echo "possible tests = "
 	@echo "   {"
 	@echo "       interrupt_processing, event, event_processing,"
-	@echo "       mq, mq_workload, mutex, mutex_pip, mutex_workload,"
+	@echo "       mq, mq_workload, mq_processing, mutex, mutex_pip, mutex_workload,"
 	@echo "       mutex_processing, sched_latency, sem, sem_processing,"
 	@echo "       sem_prio, jitter"
 	@echo "   }"
@@ -36,7 +36,7 @@ nothing:
 	@echo "   make clean"
 
 clean:
-	bash clean_script.sh
+	bash scripts/clean_script.sh
 	# make -C example/$(EXAMPLE) clean
 
 interrupt_processing:
