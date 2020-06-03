@@ -7,11 +7,11 @@
 # 	"event_processing"
 # 	"mq"
 # 	"mq_workload"
+# 	"mq_processing"
 # 	"mutex"
 # 	"mutex_pip"
 # 	"mutex_workload"
 # 	"mutex_processing"
-# 	"sched_latency"
 # 	"sem"
 # 	"sem_processing"
 # 	"sem_prio"
@@ -39,5 +39,20 @@
 #   echo "done"
 # done
 
-echo "This script does not work."
-echo "type \"make\" to see how to compile the tests."
+# echo "This script does not work."
+echo "type \"make\" on RTOSBench/ directory to see how to compile individual tests."
+
+cd ..
+
+make EXAMPLE=linux interrupt_processing
+make EXAMPLE=linux mq
+make EXAMPLE=linux mq_workload
+make EXAMPLE=linux mq_processing
+make EXAMPLE=linux mutex
+make EXAMPLE=linux mutex_pip
+make EXAMPLE=linux mutex_workload
+make EXAMPLE=linux mutex_processing
+make EXAMPLE=linux sem
+make EXAMPLE=linux sem_processing
+make EXAMPLE=linux sem_prio
+make EXAMPLE=linux jitter
