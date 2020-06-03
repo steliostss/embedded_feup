@@ -38,3 +38,5 @@ Raspberry/RTOSBench/example/linux/mutex_workload
 Raspberry/RTOSBench/example/linux/sem
 Raspberry/RTOSBench/example/linux/sem_prio
 Raspberry/RTOSBench/example/linux/sem_processing
+
+Raspberry/RTOSBench/example/linux/sem_folder/.fuse*
