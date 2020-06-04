@@ -20,7 +20,7 @@ do
     cd $i
     echo "Taking output: "$i
     echo "parsing started"
-    python ../parser.py $i
+    python3 ../parser.py $i
     echo "parsing finished"
     echo "-------------------------------------------"
     cd ../

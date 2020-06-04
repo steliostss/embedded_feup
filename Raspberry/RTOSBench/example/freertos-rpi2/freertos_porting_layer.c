@@ -322,7 +322,7 @@ void no_single_result_report(char* prefix, int64_t time)
 	rpi_aux_mu_string(printfbuf);
 }
 
-void no_result_report(int64_t max, int64_t min, int64_t average)
+void no_result_report(int64_t max, int64_t min, int64_t average,int64_t counter)
 {
 	memset(printfbuf, '\0', 100);
 	int32_t a, b, c;

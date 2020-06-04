@@ -34,13 +34,13 @@ def make_stats(timer_t1, timer_t2, max_ref, min_ref):
     f.write( str(max_ref) +"," + str(min_ref) + "," + str(avg) + ","+ str(numpy.median(diff)) + "," + str(max(diff)) + ","+ str(min(diff)) +"\n")
 
 
-with open(filepath) as fp:
+with open(filepath,errors='ignore') as fp:
     for line in fp:
         #print(line)
         if (line.find("max") != -1):
             # end of stats, we need new stats
             max_match = re.search(r'max=(\d*)', line)
-            min_line = fp.next()
+            min_line = fp.readline()
             min_match = re.search(r'min=(\d*)', min_line)
             make_stats(timer_t1,timer_t2,int(max_match.group(1)),int(min_match.group(1)))
             # deleting counter for another run
@@ -59,5 +59,5 @@ f.close()
 
 df = pd.read_csv('stats.csv')
 df.plot.bar()
-plt.show()
+#plt.show()
 plt.savefig(filepath)
