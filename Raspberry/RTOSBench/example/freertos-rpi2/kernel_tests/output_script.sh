@@ -21,6 +21,9 @@ do
     echo "Taking output: "$i
     echo "parsing started"
     python3 ../parser.py $i
+    touch README.md
+    echo "# $i" > README.md
+    echo "![$i]($i.png)" >> README.md
     echo "parsing finished"
     echo "-------------------------------------------"
     cd ../
