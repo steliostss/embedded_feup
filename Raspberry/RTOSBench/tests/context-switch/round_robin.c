@@ -14,6 +14,8 @@
 #define NO_TEST_ID NOBENCH_TEST_ID_COOP_SCHED
 #endif
 
+#define configUSE_PREEMPTION 1 	// for all tasks set to 0, for round_robin set to 1!!
+
 #ifndef NB_ITER
 #define NB_ITER 1000
 #endif
