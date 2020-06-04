@@ -1,0 +1,301 @@
+Test: mq, attempt 1
+execution started
+begin
+finish
+finish
+execution finished
+-------------------------------------------
+Test: mq, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_workload, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_workload, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_workload, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_workload, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_workload, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_processing, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_processing, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_processing, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_processing, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mq_processing, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_pip, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_pip, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_pip, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_pip, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_pip, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_workload, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_workload, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_workload, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_workload, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_workload, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_processing, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_processing, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_processing, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_processing, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: mutex_processing, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_processing, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_processing, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_processing, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_processing, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_processing, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_prio, attempt 1
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_prio, attempt 2
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_prio, attempt 3
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_prio, attempt 4
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
+Test: sem_prio, attempt 5
+execution started
+begin
+finish
+execution finished
+-------------------------------------------
