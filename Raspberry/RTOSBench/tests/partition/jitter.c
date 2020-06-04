@@ -91,7 +91,7 @@ no_task_retval_t monitor(no_task_argument_t args)
 		time_t2 = no_time_get();
 		// get time difference with nanosecond accuracy
 		diff = no_time_diff(&time_t1, &time_t2); 
-		no_single_result_report("", diff);
+		// no_single_result_report("", diff);
 
 		no_task_yield();
 	}

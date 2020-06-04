@@ -228,9 +228,10 @@ long no_time_diff(const no_time_t* t1, const no_time_t* t2)
 	// 		diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
     //         diff += t2->tv_nsec-t1->tv_nsec;
 	// }
-	// printf("nsec t2 - t1; %ld - %ld\n", t2->tv_nsec, t1->tv_nsec);
-	// printf("sec t2 - t1; %ld - %ld\n", t2->tv_sec, t1->tv_sec);
-	// printf("final diff=%ld\n", diff);
+
+	printf("nsec t2 - t1: %ld, %ld\n", t2->tv_nsec, t1->tv_nsec);
+	printf("sec  t2 - t1: %ld, %ld\n", t2->tv_sec, t1->tv_sec);
+	printf("diff          %ld\n", diff);
 	return diff;
 }
 
