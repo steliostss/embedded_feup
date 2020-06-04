@@ -11,7 +11,8 @@ targets=(
 	"sem"
 	"sem_processing"
 	"sem_prio"
-	"jitter")
+	"jitter"
+	"round_robin")
 
 cd ../example/linux
 rm -rf bld/
