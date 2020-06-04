@@ -3,7 +3,7 @@
 # if you want round robin, you must edit FreeRtosConfig file and set PREEMPTION to 0
 targets=(
   # "interrupt_processing"
-  "mq"
+  # "mq"
   # "mq_workload"
   # "mq_processing"
   # "mutex"
@@ -14,6 +14,7 @@ targets=(
 	# "sem_processing"
 	# "sem_prio"
 	# "jitter"
+  "round_robin"
   )
 
 for i in "${targets[@]}"
