@@ -51,7 +51,7 @@ void no_initialize_test(no_task_entry_t init_function)
 	/* Allocate sem pool */
 	CPU_ZERO(&cpuset);
 	CPU_SET(NO_AFFINITY, &cpuset);
-	printf("setting up affinity %d\n", NO_AFFINITY);
+	printf("\nsetting up affinity %d\n", NO_AFFINITY);
 
 	if (sched_setaffinity(0, sizeof(cpuset), &cpuset) != 0) {
 		no_serial_write("Sched set affinity failed.\n");
@@ -207,19 +207,30 @@ long no_time_diff(const no_time_t* t1, const no_time_t* t2)
 {
 	long diff;
 	//printf("sec diff=%ld\n", diff);
-	if (((int)t2->tv_nsec - (int)t1->tv_nsec) < 0)
+	diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
+	if ((int) t2->tv_nsec >= (int) t1->tv_nsec)
 	{
-			diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
-            diff += t1->tv_nsec - t2->tv_nsec;
-    }
-    else 
-    {
-			diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
-            diff += t2->tv_nsec-t1->tv_nsec;
+		diff += ((int) t2->tv_nsec - (int) t1->tv_nsec);
+		// printf("more\n");
 	}
+	else
+	{
+		diff += ((int) t1->tv_nsec - (int) t2->tv_nsec);
+		// printf("less\n");
+	}
+	// if (((int)t2->tv_nsec - (int)t1->tv_nsec) < 0)
+	// {
+	// 		diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
+    //         diff += t1->tv_nsec - t2->tv_nsec;
+    // }
+    // else 
+    // {
+	// 		diff = NSEC_PER_SEC * (int64_t)((int) t2->tv_sec - (int) t1->tv_sec);
+    //         diff += t2->tv_nsec-t1->tv_nsec;
+	// }
 	// printf("nsec t2 - t1; %ld - %ld\n", t2->tv_nsec, t1->tv_nsec);
 	// printf("sec t2 - t1; %ld - %ld\n", t2->tv_sec, t1->tv_sec);
-	printf("final diff=%ld\n", diff);
+	// printf("final diff=%ld\n", diff);
 	return diff;
 }
 
@@ -344,7 +355,8 @@ void no_result_report(int64_t max, int64_t min, int64_t average, int64_t counter
 
 void no_single_result_report(char* prefix, int64_t value)
 {
-	int a = (int)value;
+	int a = (int) value;
+	// printing for jitter
 	printf("%s%d\n", prefix, a);
 }
 
