@@ -1,5 +1,5 @@
 ## mq
-![mq](mq.png)
+![mq](mq/mq.png)
 
 | Max  | Min | Average           | Median |
 | ---- | --- | ----------------- | ------ |
@@ -15,7 +15,7 @@
 | 563  | 512 | 526.9088          | 528.0  |
  
 ## mq_workload
-![mq_workload](mq_workload.png)
+![mq_workload](mq_workload/mq_workload.png)
 
 | Max  | Min | Average           | Median |
 | ---- | --- | ----------------- | ------ |
@@ -23,7 +23,7 @@
 | 2555 | 535 | 544.9458          | 544.0  |
  
 ## mq_processing
-![mq_processing](mq_processing.png)
+![mq_processing](mq_processing/mq_processing.png)
 
 | Max  | Min | Average  | Median |
 | ---- | --- | -------- | ------ |
@@ -45,7 +45,7 @@
 | 170  | 137 | 137.5078 | 137.0  |
  
 ## mutex
-![mutex](mutex.png)
+![mutex](mutex/mutex.png)
 
 | Max  | Min  | Average            | Median |
 | ---- | ---- | ------------------ | ------ |
@@ -68,7 +68,7 @@
 | 1491 | 1032 | 1052.8356          | 1056.0 |
  
 ## mutex_pip
-![mutex_pip](mutex_pip.png)
+![mutex_pip](mutex_pip/mutex_pip.png)
 
 | Max  | Min  | Average   | Median |
 | ---- | ---- | --------- | ------ |
@@ -80,7 +80,7 @@
 | 1498 | 1024 | 1040.7782 | 1042.0 |
  
 ## mutex_workload
-![mutex_workload](mutex_workload.png)
+![mutex_workload](mutex_workload/mutex_workload.png)
 
 | Max | Min | Average           | Median |
 | --- | --- | ----------------- | ------ |
@@ -88,7 +88,7 @@
 | 788 | 528 | 531.1896          | 529.0  |
  
 ## mutex_processing
-![mutex_processing](mutex_processing.png)
+![mutex_processing](mutex_processing/mutex_processing.png)
 
 | Max | Min | Average            | Median |
 | --- | --- | ------------------ | ------ |
@@ -102,7 +102,7 @@
 | 511 | 157 | 160.2146           | 160.0  |
  
 ## sem
-![sem](sem.png)
+![sem](sem/sem.png)
 
 | Max  | Min | Average  | Median |
 | ---- | --- | -------- | ------ |
@@ -122,7 +122,7 @@
 | 452  | 420 | 428.1084 | 427.0  |
  
 ## sem_processing
-![sem_processing](sem_processing.png)
+![sem_processing](sem_processing/sem_processing.png)
 
 | Max  | Min | Average            | Median |
 | ---- | --- | ------------------ | ------ |
@@ -144,7 +144,7 @@
 | 132  | 100 | 100.0116           | 100.0  |
  
 ## sem_prio
-![sem_prio](sem_prio.png)
+![sem_prio](sem_prio/sem_prio.png)
 
 | Max | Min | Average  | Median |
 | --- | --- | -------- | ------ |
@@ -161,7 +161,7 @@
 | 608 | 214 | 229.6938 | 229.0  |
  
 ## round_robin
-![round_robin](round_robin.png)
+![round_robin](round_robin/round_robin.png)
 
 | Max | Min | Average            | Median |
 | --- | --- | ------------------ | ------ |
