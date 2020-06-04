@@ -19,7 +19,7 @@ timer_t1 = []
 timer_t2 = []
 
 f = open("stats.csv", "w")
-f.write("Max ref, Min ref, Average, Median, Max local, Min local\n")
+f.write("Max,Min,Average,Median\n")
 
 def Diff(li1, li2):
     return (list(set(li2) - set(li1)))
@@ -31,7 +31,7 @@ def make_stats(timer_t1, timer_t2, max_ref, min_ref):
     #print(t2)
     diff = numpy.abs(t2 - t1)
     avg = numpy.mean(diff)
-    f.write( str(max_ref) +"," + str(min_ref) + "," + str(avg) + ","+ str(numpy.median(diff)) + "," + str(max(diff)) + ","+ str(min(diff)) +"\n")
+    f.write( str(max_ref) +"," + str(min_ref) + "," + str(avg) + ","+ str(numpy.median(diff)) + "\n")
 
 
 with open(filepath,errors='ignore') as fp:

@@ -24,6 +24,8 @@ do
     touch README.md
     echo "# $i" > README.md
     echo "![$i]($i.png)" >> README.md
+    echo "" >> README.md
+    /home/alena/.local/bin/csv2md stats.csv >> README.md
     echo "parsing finished"
     echo "-------------------------------------------"
     cd ../
