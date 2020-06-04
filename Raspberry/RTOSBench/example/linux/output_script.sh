@@ -35,7 +35,7 @@ do
     echo "## $i" >> ../README.md
     echo "$i" >> ../allstats.csv
     echo "![$i]($i.png)" >> README.md
-    echo "![$i]($i/$i.png)" >> ../README.md
+    echo "![$i]($i""_folder/$i.png)" >> ../README.md
     echo "" >> README.md
     echo "" >> ../README.md
     /home/alena/.local/bin/csv2md stats.csv >> README.md

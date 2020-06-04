@@ -1,5 +1,5 @@
 ## mq
-![mq](mq/mq.png)
+![mq](mq_folder/mq.png)
 
 | Max     | Min  | Average    | Median |
 | ------- | ---- | ---------- | ------ |
@@ -23,7 +23,7 @@
 | 223468  | 2064 | 7663.77    | 2742.0 |
  
 ## mq_workload
-![mq_workload](mq_workload/mq_workload.png)
+![mq_workload](mq_workload_folder/mq_workload.png)
 
 | Max   | Min  | Average   | Median |
 | ----- | ---- | --------- | ------ |
@@ -34,7 +34,7 @@
 | 28548 | 3110 | 4199.6864 | 3752.0 |
  
 ## mq_processing
-![mq_processing](mq_processing/mq_processing.png)
+![mq_processing](mq_processing_folder/mq_processing.png)
 
 | Max   | Min | Average   | Median |
 | ----- | --- | --------- | ------ |
@@ -50,7 +50,7 @@
 | 21221 | 916 | 1109.5472 | 1066.0 |
  
 ## mutex
-![mutex](mutex/mutex.png)
+![mutex](mutex_folder/mutex.png)
 
 | Max      | Min      | Average       | Median     |
 | -------- | -------- | ------------- | ---------- |
@@ -66,7 +66,7 @@
 | 22946278 | 9473048  | 15884079.9356 | 15816195.0 |
  
 ## mutex_pip
-![mutex_pip](mutex_pip/mutex_pip.png)
+![mutex_pip](mutex_pip_folder/mutex_pip.png)
 
 | Max   | Min  | Average   | Median |
 | ----- | ---- | --------- | ------ |
@@ -77,7 +77,7 @@
 | 47872 | 3486 | 4556.4004 | 4448.0 |
  
 ## mutex_workload
-![mutex_workload](mutex_workload/mutex_workload.png)
+![mutex_workload](mutex_workload_folder/mutex_workload.png)
 
 | Max   | Min  | Average   | Median |
 | ----- | ---- | --------- | ------ |
@@ -88,7 +88,7 @@
 | 24031 | 1875 | 2542.3866 | 2509.0 |
  
 ## mutex_processing
-![mutex_processing](mutex_processing/mutex_processing.png)
+![mutex_processing](mutex_processing_folder/mutex_processing.png)
 
 | Max   | Min | Average | Median |
 | ----- | --- | ------- | ------ |
@@ -104,7 +104,7 @@
 | 216   | 34  | 46.6824 | 47.0   |
  
 ## sem
-![sem](sem/sem.png)
+![sem](sem_folder/sem.png)
 
 | Max      | Min      | Average       | Median     |
 | -------- | -------- | ------------- | ---------- |
@@ -120,7 +120,7 @@
 | 32744938 | 16222690 | 24554495.9378 | 24556417.0 |
  
 ## sem_processing
-![sem_processing](sem_processing/sem_processing.png)
+![sem_processing](sem_processing_folder/sem_processing.png)
 
 | Max  | Min | Average | Median |
 | ---- | --- | ------- | ------ |
@@ -136,7 +136,7 @@
 | 125  | 34  | 47.1556 | 47.0   |
  
 ## sem_prio
-![sem_prio](sem_prio/sem_prio.png)
+![sem_prio](sem_prio_folder/sem_prio.png)
 
 | Max   | Min | Average  | Median |
 | ----- | --- | -------- | ------ |
@@ -147,7 +147,7 @@
 | 7704  | 569 | 715.8388 | 624.0  |
  
 ## round_robin
-![round_robin](round_robin/round_robin.png)
+![round_robin](round_robin_folder/round_robin.png)
 
 | Max      | Min  | Average            | Median    |
 | -------- | ---- | ------------------ | --------- |
