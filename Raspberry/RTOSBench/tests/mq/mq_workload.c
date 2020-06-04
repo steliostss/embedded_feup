@@ -127,3 +127,13 @@ no_task_retval_t workload_task(no_task_argument_t args)
 
 	return TASK_DEFAULT_RETURN;
 }
+
+/*
+ * First check "mq.c" explanation comments.
+ * In this file, code flow is similar to "mq.c" with the only
+ * difference there are some more tasks that are in a for loop
+ * and have some workload: DO_WORKLOAD(i%100)
+ * After this workload, context switch is attempted.
+ * Again, only one task is sender and one receiver.
+ */
+

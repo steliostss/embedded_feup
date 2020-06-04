@@ -26,6 +26,13 @@ no_main_retval_t main(no_main_argument_t args)
 	return MAIN_DEFAULT_RETURN;
 }
 
+/*
+ * Refer to mq_processing explanation comments to understand this test.
+ * The operation has a similar structure with the main difference being
+ * that here we use semaphores.
+ * 1 task performing send-receive by itself using semaphores.
+ */
+
 no_task_retval_t sem_processing_initialize_test(no_task_argument_t args)
 {
 	no_sem_create(&sem, 0);

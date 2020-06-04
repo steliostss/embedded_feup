@@ -1,0 +1,16 @@
+setting up affinity 7
+Sched set affinity failed.
+
+
+-----------------------new execution----------------------
+
+setting up affinity 7
+Sched set affinity failed.
+
+
+-----------------------new execution----------------------
+
+setting up affinity 7
+Sched set affinity failed.
+
+

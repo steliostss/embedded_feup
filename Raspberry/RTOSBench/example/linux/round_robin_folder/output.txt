@@ -1,0 +1,388 @@
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=37352
+min=1094
+average=1450
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=84869
+min=1119
+average=1923
+counter=4999
+
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=42800
+min=1090
+average=1429
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=10546
+min=1089
+average=1373
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=14516
+min=1095
+average=1841
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=10987
+min=1087
+average=1319
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=12219
+min=1096
+average=1570
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=18143
+min=1090
+average=1331
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 15
+-- cooperating scheduling ctx switch --
+max=19005
+min=1093
+average=1401
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=16402
+min=1087
+average=1286
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=6521
+min=1080
+average=1292
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=14014
+min=1088
+average=1453
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=11972
+min=1076
+average=1394
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=47871
+min=1088
+average=1290
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=17845
+min=1089
+average=1487
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=8012
+min=1091
+average=1581
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=8700
+min=1074
+average=1383
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=18206
+min=1085
+average=1584
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 10
+-- cooperating scheduling ctx switch --
+max=17685
+min=1082
+average=1489
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=28561
+min=1090
+average=2009
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=20804
+min=1086
+average=1554
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=14713
+min=1065
+average=1240
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=25395
+min=1075
+average=1179
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=19967
+min=1083
+average=1449
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=42400
+min=1067
+average=1265
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=9099
+min=1087
+average=1334
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=85212
+min=1072
+average=1265
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=13387
+min=1087
+average=1883
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 3
+-- cooperating scheduling ctx switch --
+max=30374
+min=1069
+average=1613
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=31474
+min=1071
+average=1304
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=56239
+min=1257
+average=1955
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=21082
+min=1270
+average=1836
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=8634
+min=1071
+average=1316
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=11843
+min=1082
+average=1186
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=38269
+min=1236
+average=1756
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=16824
+min=1075
+average=1341
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=52957
+min=1090
+average=1312
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=7301
+min=1069
+average=1219
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=19590
+min=1107
+average=1933
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=18652
+min=1520
+average=2294
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=76624
+min=1510
+average=2042
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=24532
+min=1077
+average=1333
+counter=4999
+
+setting up affinity 2
+setting up prio 10
+Tasks: 2
+-- cooperating scheduling ctx switch --
+max=58405
+min=1066
+average=1339
+counter=4999

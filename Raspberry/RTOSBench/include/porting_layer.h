@@ -75,6 +75,7 @@
 	TYPE max_cycles = NO_INIT_MIN_TIME_VALUE; \
 	TYPE min_cycles = NO_INIT_MAX_TIME_VALUE; \
 	TYPE average_cycles = NO_INIT_MIN_TIME_VALUE; \
+	TYPE counter = NO_INIT_MIN_TIME_VALUE; \
 
 #else
 
@@ -102,8 +103,9 @@
 				{ \
 					min_cycles = cycles; \
 				} \
-				average_cycles = 0; \
-			}\
+			} \
+			average_cycles += cycles; \
+			counter += 1; \
 		} while(0);
 #else
 #define COMPUTE_TIME_STATS(SUFFIX, n) do { \
@@ -116,7 +118,8 @@
 #define RESET_TIME_STATS() \
 	average_cycles = 0; \
 	max_cycles = 0; \
-	min_cycles = NO_INIT_MAX_TIME_VALUE;
+	min_cycles = NO_INIT_MAX_TIME_VALUE; \
+	counter = 0;
 #else
 #define RESET_TIME_STATS()
 #endif // NO_VERBOSE_RESULTS
@@ -125,7 +128,7 @@
 #ifndef NO_VERBOSE_RESULTS
 #define REPORT_BENCHMARK_RESULTS(STR_PTR) do { \
 			no_serial_write(STR_PTR); \
-			no_result_report(max_cycles, min_cycles, average_cycles); \
+			no_result_report(max_cycles, min_cycles, average_cycles, counter); \
 		} while (0);
 #else
 #define REPORT_BENCHMARK_RESULTS(STR_PTR) do { \
@@ -201,7 +204,7 @@ no_time_t no_time_get();
 /**
  * @brief Prints the results on the serial output
  */
-void no_result_report(int64_t max, int64_t min, int64_t average);
+void no_result_report(int64_t max, int64_t min, int64_t average, int64_t counter);
 
 /**
  * @brief Write a single integer value with a prefix

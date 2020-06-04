@@ -1,0 +1,96 @@
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=22520
+min=1083
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=13683
+min=1093
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=20331
+min=1085
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=12476
+min=1080
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=20083
+min=1074
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=19252
+min=1090
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=33988
+min=1082
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=35153
+min=1087
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=40032
+min=1076
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=35762
+min=1139
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=131680
+min=1133
+average=0
+
+-----------------------sem_prio new execution----------------------
+setting up affinity 2
+setting up prio 10
+--- sem singaling with prio ---
+max=19603
+min=1089
+average=0
+

@@ -104,6 +104,7 @@ no_task_retval_t TA_high_prio(no_task_argument_t args)
 	DECLARE_TIME_COUNTERS(no_time_t, time);
 	DECLARE_TIME_STATS(int64_t);
 
+	// FULL EXPLANATION BELOW
 	/*  Measure signaling time with priority:
 	 *
 	 * 1 - TA blocks waiting on aux_sem
