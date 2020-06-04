@@ -1,8 +1,11 @@
 import re
 from statistics import mean
 from sys import argv
-
+import pandas as pd
 import numpy
+import matplotlib.pyplot as plt
+#import matplotlib
+#matplotlib.use('Agg')
 
 # name of the output file
 filepath = argv[1]
@@ -53,3 +56,8 @@ with open(filepath) as fp:
                 timer_t2.append(int(match.group(1)))  # matching the number
 
 f.close()
+
+df = pd.read_csv('stats.csv')
+df.plot.bar()
+plt.show()
+plt.savefig(filepath)
