@@ -20,7 +20,7 @@
 #define NB_ITER 1000
 #endif
 
-#define NB_TASK 5 // 2
+#define NB_TASK 2
 
 no_task_retval_t task(no_task_argument_t args);
 no_task_retval_t round_robin_stress_initialize_test(no_task_argument_t args);
@@ -56,7 +56,7 @@ no_task_retval_t round_robin_stress_initialize_test(no_task_argument_t args)
 		tasks_name[i][3] = (67 + i) % 255;
 		tasks_name[i][4] = '\0';
 		tasks_handle[i] = no_create_task(task, tasks_name[i], BASE_PRIO);
-	}
+	}	
 }
 
 no_task_retval_t task(no_task_argument_t args)
@@ -120,13 +120,16 @@ no_task_retval_t task(no_task_argument_t args)
 				 */
 				COMPUTE_TIME_STATS(_, i);
 			}
+			// no_serial_write("R1");
+
 		}
-		/*for (i = 0; i < NB_ITER; i++)
-		{
-			printf("%ld\n", results[i]);
-			no_single_result_report("i=", results[i]);
-		}*/
-		no_serial_write("R");
+		// for (i = 0; i < NB_ITER; i++)
+		// {
+		// 	printf("%d\n", results[i]);
+		// 	no_single_result_report("i=", results[i]);
+		// }
+		// no_serial_write("R");
+		printf("Tasks: %d\n", NB_TASK);
 		REPORT_BENCHMARK_RESULTS("-- cooperating scheduling ctx switch --")
 	}
 	else if (local_idx == 1)
@@ -134,7 +137,7 @@ no_task_retval_t task(no_task_argument_t args)
 		for (i = 0; i < NB_ITER; i++)
 		{
 			//DO_WORKLOAD(i)
-			no_serial_write("2");
+			// no_serial_write("2");
 			no_task_yield();
 			/*
 			 * #define WRITE_T2_COUNTER(SUFFIX) \
@@ -150,6 +153,7 @@ no_task_retval_t task(no_task_argument_t args)
 	{
 		for (i = 0; i < NB_ITER; i++)
 		{
+			// no_serial_write("3");
 			//DO_WORKLOAD(i)
 			no_task_yield();
 		}
