@@ -24,6 +24,7 @@ I am also putting the outputs from console to these files.
 - mutex_workload
 - mq
 - mq_workload
+- mq_processing
 
 - event\* missing in test folder!
 - interrupt_processing is giving no results!
