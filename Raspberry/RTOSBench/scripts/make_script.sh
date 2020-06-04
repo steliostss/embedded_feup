@@ -56,3 +56,4 @@ make EXAMPLE=linux sem
 make EXAMPLE=linux sem_processing
 make EXAMPLE=linux sem_prio
 make EXAMPLE=linux jitter
+make EXAMPLE=linux context_switch
