@@ -15,17 +15,34 @@ targets=(
  "round_robin"
   )
 
+rm README.md
+rm allstats.csv
+
+touch README.md
+touch allstats.csv
+
+echo "# Results Raspberry"
+
 for i in "${targets[@]}"
 do
+    #echo "## $i" >> README.md
     cd $i
     echo "Taking output: "$i
     echo "parsing started"
     python3 ../parser.py $i
     touch README.md
     echo "# $i" > README.md
+    echo "## $i" >> ../README.md
+    echo "$i" >> ../allstats.csv
     echo "![$i]($i.png)" >> README.md
+    echo "![$i]($i.png)" >> ../README.md
     echo "" >> README.md
+    echo "" >> ../README.md
     /home/alena/.local/bin/csv2md stats.csv >> README.md
+    /home/alena/.local/bin/csv2md stats.csv >> ../README.md
+    echo " " >> ../README.md
+    cat stats.csv >> ../allstats.csv
+    echo "--------" >> ../allstats.csv
     echo "parsing finished"
     echo "-------------------------------------------"
     cd ../
