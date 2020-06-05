@@ -6,8 +6,9 @@ filepath = "allstats.csv"
 filepath2 = "allstats_linux.csv"
 
 f = open("comparison.csv", "w")
-labels = { "mq": ['mq','mq_processing','mq_workload' ], "mutex":['mutex','mutex_pip','mutex_workload','mutex_processing' ],
-         "sem": ["sem", 'sem_processing','sem_prio'], "round_robin": ["round_robin"]}
+labels = { "mq": ['mq_receive_block','mq_signal_block','mq_send','mq_receive','mq_workload' ],
+           "mutex:":['mutex_release_unblock','mutex_request_block','mutex_pip','mutex_workload','mutex_acquisition','mutex_release' ],
+         "sem": ["sem_wait_block","sem_signal_unblock", 'sem_signal','sem_wait','sem_prio'], "round_robin": ["round_robin"]}
 
 min_index = 1;
 

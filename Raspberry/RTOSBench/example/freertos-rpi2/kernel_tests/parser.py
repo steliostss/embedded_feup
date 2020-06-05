@@ -82,10 +82,10 @@ f = open("stats.csv", "a")
 for name, strings in stats_array.items():
     pom = name
     name = name.replace(" ", "_")
-    name = re.sub(r'^_', '', name)
-    name = re.sub(r'_$', '', name)
     name = name.replace("-", "")
     name =name.replace(":", "")
+    name = re.sub(r'^_', '', name)
+    name = re.sub(r'_$', '', name)
     name = name.lower()
     l = open(name + ".csv", "w")
     l_max = open(name + "_max.csv", "w")
