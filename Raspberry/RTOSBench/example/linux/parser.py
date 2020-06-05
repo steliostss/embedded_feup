@@ -63,10 +63,10 @@ with open(filepath,errors='ignore') as fp:
             timer_t1.append( int(match.group(2))) # matching the number
 
 f.close()
-def ploting(name):
+def ploting(name, title):
     df = pd.read_csv(name + ".csv")
     df.plot.bar()
-    plt.title(name)
+    plt.title(title)
     #plt.show()
     plt.savefig(name)
 df = pd.read_csv('stats.csv')
@@ -93,7 +93,6 @@ for name, strings in stats_array.items():
     l.close()
     l_max.close()
     l_without_max.close()
-    ploting(name)
-    ploting(name)
-    ploting(name+"_max")
-    ploting(name + "_nomax")
+    ploting(name,pom)
+    ploting(name+"_max",pom)
+    ploting(name + "_nomax",pom)
