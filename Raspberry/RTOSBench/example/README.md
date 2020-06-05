@@ -1,5 +1,5 @@
 # Comparisons
-! some of the data are linux take MIN from ALL MINS (not median from all medians)
+! some of the charts from LINUX take MIN from ALL MINS (not median from all medians)
 
 ## mq
 ![mq](mq.png)
