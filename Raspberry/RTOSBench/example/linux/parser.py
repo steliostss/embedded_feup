@@ -88,7 +88,7 @@ for name, strings in stats_array.items():
     l_max.write("Max\n")
     for string_dic in strings:
         l.write(str(string_dic["max"]) +"," + str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
-        l_max.write(str(string_dic["max"]))
+        l_max.write(str(string_dic["max"])+ "\n")
         l_without_max.write( str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
     l.close()
     l_max.close()
