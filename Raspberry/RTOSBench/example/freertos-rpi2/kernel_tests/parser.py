@@ -21,28 +21,36 @@ timer_t2 = []
 f = open("stats.csv", "w")
 f.write("Max,Min,Average,Median\n")
 
+stats_array = {}
+
 def Diff(li1, li2):
     return (list(set(li2) - set(li1)))
 
-def make_stats(timer_t1, timer_t2, max_ref, min_ref):
+def make_stats(timer_t1, timer_t2, max_ref, min_ref,type):
     t1 = numpy.abs(numpy.array(timer_t1))
     t2 = numpy.abs(numpy.array(timer_t2))
     #print(t1)
     #print(t2)
     diff = numpy.abs(t2 - t1)
     avg = numpy.mean(diff)
+    stats_array[type].append({ 'min': min_ref, 'max':max_ref,'avg':avg, 'median': numpy.median(diff)})
     f.write( str(max_ref) +"," + str(min_ref) + "," + str(avg) + ","+ str(numpy.median(diff)) + "\n")
 
-
+array_index = '';
 with open(filepath,errors='ignore') as fp:
     for line in fp:
         #print(line)
+        if (line.find("-- ") != -1):
+           match = re.search(r'-- (.*) --', line)
+           #print(match.group(1))
+           array_index =match.group(1)
+
         if (line.find("max") != -1):
             # end of stats, we need new stats
             max_match = re.search(r'max=(\d*)', line)
             min_line = fp.readline()
             min_match = re.search(r'min=(\d*)', min_line)
-            make_stats(timer_t1,timer_t2,int(max_match.group(1)),int(min_match.group(1)))
+            make_stats(timer_t1,timer_t2,int(max_match.group(1)),int(min_match.group(1)),array_index)
             # deleting counter for another run
             timer_t1 = []
             timer_t2 = []
@@ -61,3 +69,27 @@ df = pd.read_csv('stats.csv')
 df.plot.bar()
 #plt.show()
 plt.savefig(filepath)
+
+for name, strings in stats_array.items():
+    pom = name
+    name = name.replace(" ", "_")
+    name =name.replace(":", "")
+    name = name.lower()
+    l = open(name + ".csv", "w")
+    l_max = open(name + "_max.csv", "w")
+    l_without_max = open(name + "_nomax.csv", "w")
+    #l.write(name + "\n")
+    l.write("Max,Min,Average,Median\n")
+    l_without_max.write("Min,Average,Median\n")
+    l_max.write("Max\n")
+    for string_dic in strings:
+        l.write(str(string_dic["max"]) +"," + str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
+        l_max.write(str(string_dic["max"]))
+        l_without_max.write( str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
+    l.close()
+    l_max.close()
+    l_without_max.close()
+    ploting(name)
+    ploting(name)
+    ploting(name+"_max")
+    ploting(name + "_nomax")
