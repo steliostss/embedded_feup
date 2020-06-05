@@ -43,7 +43,7 @@ with open(filepath,errors='ignore') as fp:
     for line in fp:
         #print(line)
         if (line.find("-- ") != -1):
-           match = re.search(r'-- (.*) --', line)
+           match = re.search(r'--\s*(.*)\s*--', line)
            #print(match.group(1))
            array_index =match.group(1)
 
