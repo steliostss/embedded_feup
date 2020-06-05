@@ -33,6 +33,8 @@ def make_stats(timer_t1, timer_t2, max_ref, min_ref,type):
     #print(t2)
     diff = numpy.abs(t2 - t1)
     avg = numpy.mean(diff)
+    if not type in stats_array.keys():
+        stats_array[type] = []
     stats_array[type].append({ 'min': min_ref, 'max':max_ref,'avg':avg, 'median': numpy.median(diff)})
     f.write( str(max_ref) +"," + str(min_ref) + "," + str(avg) + ","+ str(numpy.median(diff)) + "\n")
 
