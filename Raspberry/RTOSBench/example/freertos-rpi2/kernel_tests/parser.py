@@ -66,7 +66,13 @@ with open(filepath,errors='ignore') as fp:
                 timer_t2.append(int(match.group(1)))  # matching the number
 
 f.close()
-
+def ploting(name):
+    df = pd.read_csv(name + ".csv")
+    df.plot.bar()
+    plt.title(name)
+    plt.show()
+    plt.savefig(name)
+    
 df = pd.read_csv('stats.csv')
 df.plot.bar()
 #plt.show()
