@@ -74,6 +74,7 @@ df.plot.bar()
 #plt.show()
 plt.savefig(filepath[:-4])
 
+f = open("stats.csv", "a")
 for name, strings in stats_array.items():
     pom = name
     name = name.replace(" ", "_")
@@ -81,12 +82,18 @@ for name, strings in stats_array.items():
     name = name.lower()
     l = open(name + ".csv", "w")
     l_max = open(name + "_max.csv", "w")
+
+    f.write("--------\n")
+    f.write(name +'\n')
+    f.write("Max,Min,Average,Median\n")
+
     l_without_max = open(name + "_nomax.csv", "w")
     #l.write(name + "\n")
     l.write("Max,Min,Average,Median\n")
     l_without_max.write("Min,Average,Median\n")
     l_max.write("Max\n")
     for string_dic in strings:
+        f.write(str(string_dic["max"]) + "," + str(string_dic["min"]) + "," + str(string_dic["avg"]) + "," + str(string_dic["median"]) + "\n")
         l.write(str(string_dic["max"]) +"," + str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
         l_max.write(str(string_dic["max"])+ "\n")
         l_without_max.write( str(string_dic["min"]) + "," + str(string_dic["avg"]) + ","+ str(string_dic["median"])  + "\n")
@@ -96,3 +103,4 @@ for name, strings in stats_array.items():
     ploting(name,pom)
     ploting(name+"_max",pom)
     ploting(name + "_nomax",pom)
+f.close()
