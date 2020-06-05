@@ -9,11 +9,14 @@ targets=(
  "round_robin"
   )
 
+rm *.png
+rm README.md
 touch README.md
-python mixer.py
+python3 mixer.py
 
 for i in "${targets[@]}"
 do
-	echo $i >> README.md
+	echo "# $i" >> README.md
 	echo "![$i]($i.png)" >> README.md
+	echo "" >> README.md
 done

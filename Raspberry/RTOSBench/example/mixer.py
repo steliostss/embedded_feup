@@ -6,15 +6,15 @@ filepath = "allstats.csv"
 filepath2 = "allstats_linux.csv"
 
 f = open("comparison.csv", "w")
-labels = { "Messages passing": ['mq','mq_processing','mq_workload' ], "Mutex:":['mutex','mutex_pip','mutex_workload','mutex_processing' ],
-         "Semaphores": ["sem", 'sem_processing','sem_prio'], "Round robin": ["round_robin"]}
+labels = { "mq": ['mq','mq_processing','mq_workload' ], "mutex":['mutex','mutex_pip','mutex_workload','mutex_processing' ],
+         "sem": ["sem", 'sem_processing','sem_prio'], "round_robin": ["round_robin"]}
 
 median_array = {}
 
 def plot_bar(linux_means, rasp_means, labels, name):
-    print(labels)
-    print(linux_means)
-    print(rasp_means)
+    #print(labels)
+    #print(linux_means)
+    #print(rasp_means)
     x = numpy.arange(len(labels))  # the label locations
     width = 0.35  # the width of the bars
 
@@ -43,7 +43,7 @@ def plot_bar(linux_means, rasp_means, labels, name):
     autolabel(rects2)
     fig.tight_layout()
     plt.savefig(name)
-    plt.show()
+   # plt.show()
 
 
 def getArray(filepath, median):
@@ -74,7 +74,7 @@ def getArray(filepath, median):
 median_array_rasb = getArray(filepath, 3)
 median_array_linux = getArray(filepath2, 3)
 
-print(median_array_rasb)
+#print(median_array_rasb)
 for x, y in median_array_rasb.items():
     med_array = numpy.array(y)
     new_value = numpy.mean(med_array)
@@ -87,8 +87,8 @@ for x, y in median_array_linux.items():
 
 linux = []
 rasp = []
-print(median_array_rasb)
-print(median_array_linux)
+#print(median_array_rasb)
+#print(median_array_linux)
 for x,label in labels.items():
     linux = []
     rasp = []
