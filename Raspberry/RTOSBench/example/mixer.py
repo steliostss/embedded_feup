@@ -9,7 +9,7 @@ f = open("comparison.csv", "w")
 labels = { "mq": ['mq','mq_processing','mq_workload' ], "mutex":['mutex','mutex_pip','mutex_workload','mutex_processing' ],
          "sem": ["sem", 'sem_processing','sem_prio'], "round_robin": ["round_robin"]}
 
-median_array = {}
+min_index = 1;
 
 def plot_bar(linux_means, rasp_means, labels, name):
     #print(labels)
@@ -46,13 +46,17 @@ def plot_bar(linux_means, rasp_means, labels, name):
    # plt.show()
 
 
-def getArray(filepath, median):
+def getArray(filepath3, median):
     first = True
     name = 'def'
-    with open(filepath, newline='') as csvfile:
+    median_array = {}
+ #   print("neeeew\n")
+    #print(filepath)
+    with open(filepath3, newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',')
         for row in spamreader:
             pom = row[0]
+          #  print(row)
             if pom.find("Max") != -1:
                 #print("ffff")
                 continue
@@ -68,21 +72,30 @@ def getArray(filepath, median):
                         first = True
                     else:
                         #print(name)
-                        median_array[name].append(int(float(row[median])))
+                        #value = int(flow(row[median]))
+                        value = int(float(row[median]))
+                        if (value > 10000):
+                            value = int(float(row[min_index]))
+                            print("taking mic instead of max: " + name )
+                        median_array[name].append(value)
     return median_array
 
 median_array_rasb = getArray(filepath, 3)
 median_array_linux = getArray(filepath2, 3)
 
 #print(median_array_rasb)
+#print(median_array_linux)
 for x, y in median_array_rasb.items():
     med_array = numpy.array(y)
-    new_value = numpy.mean(med_array)
+    new_value = round(numpy.mean(med_array),2)
     median_array_rasb[x] = new_value
 
 for x, y in median_array_linux.items():
     med_array = numpy.array(y)
-    new_value = numpy.mean(med_array)
+    
+    new_value = round(numpy.mean(med_array),2)
+    if (new_value > 10000):
+        new_value = numpy.min(med_array)
     median_array_linux[x] = new_value
 
 linux = []
