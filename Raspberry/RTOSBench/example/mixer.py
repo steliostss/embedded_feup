@@ -6,9 +6,9 @@ filepath = "allstats.csv"
 filepath2 = "allstats_linux.csv"
 
 f = open("comparison.csv", "w")
-labels = { "mq": ['mq_receive_block','mq_signal_block','mq_send','mq_receive','mq_workload' ],
-           "mutex:":['mutex_release_unblock','mutex_request_block','mutex_pip','mutex_workload','mutex_acquisition','mutex_release' ],
-         "sem": ["sem_wait_block","sem_signal_unblock", 'sem_signal','sem_wait','sem_prio'], "round_robin": ["round_robin"]}
+labels = { "mq": ['mq_receive_block','mq_signal_unblock','mq_send','mq_receive','mq_workload' ],
+           "mutex":['mutex_release_unblock','mutex_pip','mutex_workload','mutex_acquisition','mutex_release' ],
+         "sem": ["sem_wait_block", 'sem_signal','sem_wait','sem_prio'], "round_robin": ["round_robin"]}
 
 min_index = 1;
 
@@ -17,7 +17,7 @@ def plot_bar(linux_means, rasp_means, labels, name):
     #print(linux_means)
     #print(rasp_means)
     x = numpy.arange(len(labels))  # the label locations
-    width = 0.35  # the width of the bars
+    width = 0.3  # the width of the bars
 
     fig, ax = plt.subplots()
     rects1 = ax.bar(x - width / 2, linux_means, width, label='Linux')
@@ -43,6 +43,7 @@ def plot_bar(linux_means, rasp_means, labels, name):
     autolabel(rects1)
     autolabel(rects2)
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = (10,7)
     plt.savefig(name)
    # plt.show()
 

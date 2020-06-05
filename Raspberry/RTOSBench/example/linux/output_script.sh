@@ -29,6 +29,8 @@ do
     cd $i"_folder"
     echo "Taking output: "$i
     echo "parsing started"
+    rm -rf *.png
+    rm -rf *.csv
     python3 ../parser.py "$i.txt"
     touch README.md
     echo "# $i" > README.md
