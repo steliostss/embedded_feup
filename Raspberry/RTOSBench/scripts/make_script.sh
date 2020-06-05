@@ -15,6 +15,7 @@
 # 	"sem"
 # 	"sem_processing"
 # 	"sem_prio"
+	"sem_workload"
 # 	"jitter")
 
 #rm -rf eample/kernel/tests
@@ -55,5 +56,6 @@ make EXAMPLE=linux mutex_processing
 make EXAMPLE=linux sem
 make EXAMPLE=linux sem_processing
 make EXAMPLE=linux sem_prio
+make EXAMPLE=linux sem_workload
 make EXAMPLE=linux jitter
 make EXAMPLE=linux round_robin
