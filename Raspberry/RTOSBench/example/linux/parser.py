@@ -67,7 +67,7 @@ def ploting(name):
     df = pd.read_csv(name + ".csv")
     df.plot.bar()
     plt.title(name)
-    plt.show()
+    #plt.show()
     plt.savefig(name)
 df = pd.read_csv('stats.csv')
 df.plot.bar()
