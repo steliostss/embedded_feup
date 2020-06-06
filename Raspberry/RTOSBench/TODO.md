@@ -17,9 +17,10 @@ We need to improve tests.
 
 The basic principle we should go with is that we should calculate the context switch overhead above each test so we have a better understanding of our measurements. 
 
-**Important**: Fix the graphs. 
+## Graphs
 
-Graphs should not be misleading. For example, in one graph we have Raspberry median with Linux minimum.
-Concatenate the 5,7,9... tests into one so we can have a better visualization between tests.
+**Important**: Fix the graphs ASAP.
 
-This would also lead in less graphs.
+- Graphs should not be misleading. For example, in one graph we have Raspberry median with Linux minimum.
+- Concatenate the 5,7,9... tests into one so we can have a better visualization between tests.This would also lead in less graphs.
+- Include maximum with a line break if it is too big.
