@@ -1,7 +1,7 @@
 #!/bin/bash
 
 targets=(
-	# "mq"
+	"mq"
 	"mq_processing"
 	"mq_workload"
 	"mutex"
@@ -12,20 +12,20 @@ targets=(
 	"sem"
 	"sem_prio"
 	"sem_processing"
-	"sem_workload"
+	# "sem_workload"
 	# "jitter"
 	)
 
-cd ../example/linux/
-# cd ../example/freertos-rpi2/kernel_tests
+# cd ../example/linux/
+cd ../example/freertos-rpi2/kernel_tests
 
 for i in "${targets[@]}"
 do
 #	mv $i executables/
 #	mkdir $i
 #	mv $i.txt $i/
-	cd $i"_folder"
-	# cd $i
+	# cd $i"_folder"
+	cd $i
 	mkdir csv
 	mkdir png
 	mv *.csv csv/
