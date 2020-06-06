@@ -78,7 +78,7 @@ df.plot.bar()
 #plt.show()
 plt.savefig(filepath)
 
-f = open("stats.csv", "a")
+f = open("csv/stats.csv", "a")
 for name, strings in stats_array.items():
     pom = name
     name = name.replace(" ", "_")
@@ -87,9 +87,9 @@ for name, strings in stats_array.items():
     name = re.sub(r'^_', '', name)
     name = re.sub(r'_$', '', name)
     name = name.lower()
-    l = open(name + ".csv", "w")
-    l_max = open(name + "_max.csv", "w")
-    l_without_max = open(name + "_nomax.csv", "w")
+    l = open("csv/" + name + ".csv", "w")
+    l_max = open("csv/" + name + "_max.csv", "w")
+    l_without_max = open("csv/" + name + "_nomax.csv", "w")
 
     f.write("--------\n")
     f.write(name +'\n')
