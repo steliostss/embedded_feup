@@ -39,9 +39,9 @@ clean:
 	bash scripts/clean_script.sh
 	# make -C example/$(EXAMPLE) clean
 
-interrupt_processing:
-	@make -C example/$(EXAMPLE) NO_TEST_SRC=interrupt_processing.c NO_TEST_PATH=tests/interrupt NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
-	mv example/$(EXAMPLE)/interrupt_processing example/$(EXAMPLE)/interrupt_processing_folder/
+# interrupt_processing:
+# 	@make -C example/$(EXAMPLE) NO_TEST_SRC=interrupt_processing.c NO_TEST_PATH=tests/interrupt NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
+# 	mv example/$(EXAMPLE)/interrupt_processing example/$(EXAMPLE)/interrupt_processing_folder/
 
 mq:
 	@make -C example/$(EXAMPLE) NO_TEST_SRC=mq.c NO_TEST_PATH=tests/mq NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
@@ -71,9 +71,9 @@ mutex_processing:
 	@make -C example/$(EXAMPLE) NO_TEST_SRC=mutex_processing.c NO_TEST_PATH=tests/mutex NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
 	mv example/$(EXAMPLE)/mutex_processing example/$(EXAMPLE)/mutex_processing_folder/
 
-sched_latency:
-	@make -C example/$(EXAMPLE) NO_TEST_SRC=sched_latency.c NO_TEST_PATH=tests/latency NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
-	mv example/$(EXAMPLE)/sched_latency example/$(EXAMPLE)/sched_latency_folder/
+# sched_latency:
+# 	@make -C example/$(EXAMPLE) NO_TEST_SRC=sched_latency.c NO_TEST_PATH=tests/latency NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
+# 	mv example/$(EXAMPLE)/sched_latency example/$(EXAMPLE)/sched_latency_folder/
 
 sem:
 	@make -C example/$(EXAMPLE) NO_TEST_SRC=sem.c NO_TEST_PATH=tests/semaphore NO_NB_ITER=$(NB_ITER) NOBENCH_TRACING=$(TRACING) NO_BASE_PRIO=$(BASE_PRIO) NO_AFFINITY=$(AFFINITY)
