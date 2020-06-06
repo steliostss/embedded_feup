@@ -2,10 +2,10 @@ import csv
 import numpy
 import matplotlib.pyplot as plt
 
-filepath = "allstats.csv"
-filepath2 = "allstats_linux.csv"
+filepath = "csv/allstats.csv"
+filepath2 = "csv/allstats_linux.csv"
 
-f = open("comparison.csv", "w")
+f = open("csv/comparison.csv", "w")
 labels = { "mq": ['mq_receive_block','mq_signal_unblock','mq_send','mq_receive','mq_workload' ],
            "mutex":['mutex_release_unblock','mutex_pip','mutex_workload','mutex_acquisition','mutex_release' ],
          "sem": ["sem_wait_block", 'sem_signal','sem_wait','sem_prio'], "round_robin": ["round_robin"]}
