@@ -1,9 +1,9 @@
 #!/bin/bash
 
 targets=(
-	"interrupt_processing"
 	"mq"
 	"mq_workload"
+	"mq_processing"
 	"mutex"
 	"mutex_pip"
 	"mutex_workload"
@@ -11,6 +11,7 @@ targets=(
 	"sem"
 	"sem_processing"
 	"sem_prio"
+	"sem_workload"
 	"jitter"
 	"round_robin")
 
