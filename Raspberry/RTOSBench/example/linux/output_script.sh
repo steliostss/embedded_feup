@@ -11,8 +11,10 @@ targets=(
  "mutex_processing"
  "sem"
  "sem_processing"
+ "sem_workload"
  "sem_prio"
  "round_robin"
+ "jitter"
   )
 
 rm README.md

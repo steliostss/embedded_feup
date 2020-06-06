@@ -19,7 +19,7 @@ timer_t1 = []
 timer_t2 = []
 stats_array = {}
 
-f = open("stats.csv", "w")
+f = open(""csv/" + stats.csv", "w")
 f.write("Max,Min,Average,Median\n")
 
 def Diff(li1, li2):
@@ -69,12 +69,12 @@ def ploting(name, title):
     plt.title(title)
     #plt.show()
     plt.savefig(name)
-df = pd.read_csv('stats.csv')
+df = pd.read_csv('/csv/stats.csv')
 df.plot.bar()
 #plt.show()
-plt.savefig(filepath[:-4])
+plt.savefig("csv/"+filepath[:-4])
 
-f = open("stats.csv", "a")
+f = open("csv/stats.csv", "a")
 for name, strings in stats_array.items():
     pom = name
     name = name.replace(" ", "_")
@@ -83,14 +83,14 @@ for name, strings in stats_array.items():
     name = name.lower()
     name = re.sub(r'^_', '', name)
     name = re.sub(r'_$', '', name)
-    l = open(name + ".csv", "w")
-    l_max = open(name + "_max.csv", "w")
+    l = open("csv/" + name + ".csv", "w")
+    l_max = open("csv/" + name + "_max.csv", "w")
 
     f.write("--------\n")
     f.write(name +'\n')
     f.write("Max,Min,Average,Median\n")
 
-    l_without_max = open(name + "_nomax.csv", "w")
+    l_without_max = open("csv/" + name + "_nomax.csv", "w")
     #l.write(name + "\n")
     l.write("Max,Min,Average,Median\n")
     l_without_max.write("Min,Average,Median\n")
