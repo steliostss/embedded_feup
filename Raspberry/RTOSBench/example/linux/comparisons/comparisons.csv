@@ -1,22 +1,22 @@
-Name, Max, Min, Average, Median
-
-mq_receive_block_averaged, 571370.0,1645.0,9030.539,2102.0
-mq_signal_unblock_averaged, 223468.0,2050.0,8580.5638,2742.0
-mq_workload_averaged, 35786.0,3110.0,4199.6864,3727.0
-mq_receive_averaged, 11044.0,919.0,1097.2304,1066.0
-mq_send_averaged, 17394.0,882.0,1131.289,1029.0
-
-mutex_release_unblock_averaged, 15082382.0,1852.0,6418148.4058,5774596.0
-mutex_request_block_averaged, 26799106.0,15123736.0,20950118.9554,20928968.0
-mutex_pip_averaged, 47669.0,3486.0,4602.3226,4453.5
-mutex_workload_averaged, 24031.0,1897.0,2525.2982,2509.0
-mutex_acquisition_averaged, 3537.0,35.0,50.0308,51.0
-mutex_release_averaged, 897.0,34.0,47.5838,49.0
-
-sem_signal_unblock_averaged, 27012858.0,11934962.0,18747821.9134,18488877.5
-sem_wait_block_averaged, 12402669.0,1740.0,5434033.3856,5343209.0
-sem_signal_averaged, 3428.0,34.0,46.6096,48.0
-sem_wait_averaged, 247.0,34.0,47.1814,48.0
-sem_singaling_with_prio_averaged, 11732.0,678.0,852.2918,748.0
-
-cooperating_scheduling_ctx_switch_averaged, 18683964.0,1569.0,6182078.856171235,4673922.0
+Name, Max, Min, Average, Median,Before,Break,,,
+,,,,,,,,,
+receive block,571370,1645,9030.539,2102,,,Max,590000,
+signal unblock,223468,2050,8580.5638,2742,,,Restart,540000,
+workload,35786,3110,4199.6864,3727,,,Break,230000,
+receive,11044,919,1097.2304,1066,,,Min,0,
+send,17394,882,1131.289,1029,,,,,
+,,,,,,,,,
+release unblock,15082382,1852,6418148.406,5774596,,,For broken Y axis,,
+request block,26799106,15123736,20950118.96,20928968,,,Labels,Xpos,Ypos
+pip,47669,3486,4602.3226,4453.5,,,0,0,0
+workload,24031,1897,2525.2982,2509,,,40000,0,40000
+acquisition,3537,35,50.0308,51,,,80000,0,80000
+release,897,34,47.5838,49,,,120000,0,120000
+,,,,,,,160000,0,160000
+signal unblock,27012858,11934962,18747821.91,18488877.5,,,200000,0,200000
+wait block,12402669,1740,5434033.386,5343209,,,,0.25,240000
+signal,3428,34,46.6096,48,,,540000,0,280000
+wait,247,34,47.1814,48,,,600000,0,320000
+singaling with prio,11732,678,852.2918,748,,,,,
+,,,,,,,,,
+ctx switch,18683964,1569,6182078.856,4673922,,,,,
