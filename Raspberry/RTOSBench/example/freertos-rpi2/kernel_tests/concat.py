@@ -49,6 +49,10 @@ def calc_median(file, test):
         for column in columns:
             col_to_calculate = df[column]
             calc_medians.append(np.median(col_to_calculate))
+        # print("test: ", test)
+        # print("file: ", file)
+        # print("strip: ", file.strip(test+'_'))
+        # print("--------------------------------------")
         wb = csv.writer(f)
         calc_medians.insert(0, file.strip(test+'_'))
         wb.writerow(calc_medians)
